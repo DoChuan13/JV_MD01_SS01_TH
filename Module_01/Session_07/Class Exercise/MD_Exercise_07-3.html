@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album example</title>
+    <link rel="stylesheet" href="CSS/style_07-3.css">
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .grid-container {
+        margin: 0 auto;
+        margin-top: 20px;
+        display: grid;
+        grid-template: 1fr 1fr 1fr/ 1fr 1fr 1fr;
+        width: 100%;
+    }
+    .grid-container > div {
+        padding: 10px;
+        /* border: 1px solid black; */
+    }
+    .grid-container img {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        width: 95%;
+    }
+    .grid-container p {
+        text-align: justify;
+    }
+
+    /* Header */
+    .block-hd {
+        background-color: lightblue;
+        display: inline-block;
+        width: 100%;
+    }
+    .block-hd a {
+        color: black;
+        vertical-align: middle;
+    }
+    .block-hd img {
+        width: 40px;
+        vertical-align: middle;
+    }
+
+    /* Block Section */
+    .block-sect {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+    }
+    /* Block Button */
+    .block-button {
+        border: 1px solid black;
+    }
+    .block-button a {
+        color: white;
+        text-decoration: none;
+        border-color: lightslategray;
+    }
+
+    /* Button */
+    .block_button_zone {
+        border: none;
+        padding: 0px;
+    }
+    .block_button_bottom {
+        float: left;
+        padding: 0;
+        width: 40px;
+        height: 20px;
+    }
+    .block_time {
+        float: right;
+        margin-top: 3px;
+        padding-right: 10px;
+    }
+    .block_button_zone::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Media Queries */
+    @media screen and (max-width: 768px) {
+        .block-sect {
+            width: 75%;
+        }
+        .grid-container {
+            margin: 0 auto;
+            margin-top: 20px;
+            display: grid;
+            grid-template: 1fr 1fr/ 1fr 1fr;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .block-sect {
+            width: 100%;
+        }
+        .grid-container {
+            margin: 0 auto;
+            margin-top: 20px;
+            display: grid;
+            grid-template: 1fr/ 1fr;
+            width: 100%;
+        }
+    }
+</style>
+<body>
+    <header class="block-hd">
+        <a href=""><img src="image/icon_camera.png" alt="Icon camera"> Album</a>
+    </header>
+    <section>
+        <div class="block-sect">
+            <h1>Album exmple</h1>
+            <p>Something short and leading about the collection bellow - its contents
+                the creator ect. Make it short sweet but not too short so folks don't
+                simble skip over it entirely
+            </p>
+            <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">Main call to action</a></button>
+            <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">Secondary action</a></button>
+        </div>
+        <div class="grid-container">
+            <div>
+                <img src="Image/Ex07/E7-1.jpg" alt="Picture 01">
+                <p>This is a wider card with supporting tex bellow as a natural lead-in 
+                    to addtional content. This content is a little bit longer.
+                </p>
+                <div class="block_button_zone">
+                   <div class="block_button_bottom">
+                        <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                    </div>
+                    <div class="block_button_bottom">
+                        <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                    </div>
+                    <div class="block_time">9 min</div>
+                </div> 
+            </div>
+            <div>
+                <img src="Image/Ex07/E7-2.jpg" alt="Picture 02">
+                <p>This is a wider card with supporting tex bellow as a natural lead-in 
+                    to addtional content. This content is a little bit longer.
+                </p>
+                <div class="block_button_zone">
+                    <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_time">9 min</div>
+                 </div> 
+            </div>
+            <div>
+                <img src="Image/Ex07/E7-3.jpg" alt="Picture 03">
+                <p>This is a wider card with supporting tex bellow as a natural lead-in 
+                    to addtional content. This content is a little bit longer.
+                </p>
+                <div class="block_button_zone">
+                    <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_time">9 min</div>
+                 </div> 
+            </div>
+            <div>
+                <img src="Image/Ex07/E7-4.jpg" alt="Picture 04">
+                <p>This is a wider card with supporting tex bellow as a natural lead-in 
+                    to addtional content. This content is a little bit longer.
+                </p>
+                <div class="block_button_zone">
+                    <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_time">9 min</div>
+                 </div> 
+            </div>
+            <div>
+                <img src="Image/Ex07/E7-5.jpg" alt="Picture 05">
+                <p>This is a wider card with supporting tex bellow as a natural lead-in 
+                    to addtional content. This content is a little bit longer.
+                </p>
+                <div class="block_button_zone">
+                    <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_time">9 min</div>
+                 </div> 
+            </div>
+            <div>
+                <img src="Image/Ex07/E7-6.jpg" alt="Picture 06">
+                <p>This is a wider card with supporting tex bellow as a natural lead-in 
+                    to addtional content. This content is a little bit longer.
+                </p>
+                <div class="block_button_zone">
+                    <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_button_bottom">
+                         <button class="block-button" type="button" onclick="alert('You were hacked!')"><a href="#">View</a></button>
+                     </div>
+                     <div class="block_time">9 min</div>
+                 </div> 
+            </div>
+        </div>
+    </section>
+</body>
+</html>
