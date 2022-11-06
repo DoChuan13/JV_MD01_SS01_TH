@@ -35,14 +35,17 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 75%;
+    width: 65%;
     text-transform: uppercase;
+    padding-left: 0px;
 }
 .nav__user {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    width: 25%;
+    justify-content: flex-start;
+    padding-left: 0px;
+    width: 35%;
     gap: 15px;
 }
 .nav__user a {
@@ -321,6 +324,12 @@ li:hover {
     #header {
         left: 0;
         width: 100%;
+    }
+    .navbar__menu {
+        width: 80%;
+    }
+    .nav__user {
+        width: 20%;
     }
     .content {
         margin-left: 0px;
