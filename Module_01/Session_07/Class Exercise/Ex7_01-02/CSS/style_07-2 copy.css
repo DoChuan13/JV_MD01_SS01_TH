@@ -1,0 +1,284 @@
+.container {
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(223, 229, 229);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Header */
+.main_header {
+    background-color: white;
+    border: 1px solid black;
+    height: 50px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 98.5%;
+}
+.searchbox {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 5px;
+    width: 25%;
+    height: 100%;
+    gap: 5px;
+    /* background-color: aqua; */
+}
+.searchbox img {
+    display: block;
+    padding: 3px;
+    margin-left: 5px;
+    width: 36px;
+}
+.searchbox i {
+    font-size: 10px;
+    display: inline-block;
+}
+
+
+.searchbox input {
+    border: 1px solid black;
+    margin-top: 3px;
+    height: 30px;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 10mm;
+    text-align: center;
+    outline: none;
+
+}
+.button_nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+.button_nav a img {
+    margin-top: 5px;
+    width: 40px;
+    border-radius: 25px;
+}
+.button_user {
+    display:flex;
+    width: 25%;
+    min-width: 240px;
+    justify-content:space-around;
+    align-items: center;
+    /* background-color: red; */
+    
+}
+.button_user a img {
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 40px;
+    border-radius: 25px;
+}
+
+.main_header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Section */
+.main_section {
+    margin-top: 50px;
+    display: flex;
+}
+.main_section img {
+    display: block;
+    padding: 3px;
+    margin-left: 5px;
+    width: 36px;
+}
+.id_status {
+    background-color: white;
+}
+
+/* Lef Sidebar */
+.leftbar {
+    width: 25%;
+    min-width: 250px;
+}
+
+.leftbar ul, .leftbar li {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.leftbar ul {
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 20px;
+}
+.leftbar h3 {
+    color: blue;
+    margin: 0px;
+}
+.leftbar li {
+    /* background-color: red; */
+    width: 100%;
+    height: 40px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    font-size:larger;
+}
+
+
+/* Content */
+.main_content {
+    background-color: beige;
+    max-width: fit-content;
+    width: 50%;
+}
+/* Status */
+.status {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.icon_status {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 12%;
+}
+textarea, .boxcomment {
+    display: inline-block;
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid black;
+    outline: none;
+}
+.boxcomment {
+    width: 100%;
+    height: 25px;
+    border-radius: 20px;
+}
+.button_status, .button_comment {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+.button_status a, .button_comment a {
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+}
+/* Post */
+.post {
+    margin: 10px auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    height: fit-content;
+    background-color: white;
+}
+.post_user {
+    display: flex;
+    width: 100%;
+    height: 50px;
+}
+.post img {
+    width: 40px;
+    border-radius: 30px;
+    border: 1px solid blue;
+}
+.post p {
+    text-align: justify;
+}
+.name_user {
+    width: 90%;
+    text-align: left;
+}
+
+
+/* Right Sidebar */
+.rightbar {
+    /* background-color: aqua; */
+    width: 25%;
+}
+.rightbar ul, .rightbar li {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.rightbar ul {
+    list-style: none;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.rightbar h3 {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: blue;
+    margin: 0px;
+}
+.rightbar li {
+    /* background-color: red; */
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    font-size:larger;
+}
+
+.main_section {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.button_user a img:hover {
+    border: 2px solid blue;
+}
+
+/* .button_nav a img:hover {
+    border: 2px solid blue;
+} */
+
+.leftbar li:hover {
+    background-color:beige;
+    border: 1px solid blue; 
+}
+.rightbar li:hover {
+    background-color:beige;
+    border: 1px solid blue;
+}
+
+.button_status a:hover {
+    background-color: blue;
+    color: white;
+    border-color: black;
+}
+
+.button_comment a:hover {
+    background-color: blue;
+    color: white;
+    border-color: black;
+}
+
+@media only screen and (max-width: 1000px) {
+   .searchbox input {
+        width: 50px;
+    }
+    
+}
