@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 01</title>
+</head>
+<style>
+
+</style>
+<body>
+    <!-- Bài tập 02 tim so lon nhat trong 3 so -->
+    <button type="button" onclick="maxValue()">Click to input info</button>
+
+    <br><br><br><br><br>
+    <hr>
+</body>
+<script>
+    // Bài tập 02 tim so lon nhat trong 3 so
+    function maxValue() {
+        let numberA = prompt("Nhập số A:");
+        let numberB = prompt("Nhập số B:");
+        let numberC = prompt("Nhập số C:");
+        if (numberA > numberB && numberA > numberC) {
+            document.write("Max value is " + numberA);
+        }
+        else {
+            if (numberB > numberC) {
+                document.write("Max value is " + numberB);
+            }
+            else {
+                document.write("Max value is " + numberC);
+            }
+
+        }
+    }
+</script>
+</html>

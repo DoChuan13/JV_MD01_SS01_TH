@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 01</title>
+</head>
+<style>
+
+</style>
+<body>
+    <!-- Bài tập 01 input your name/ your age -->
+    <button type="button" onclick="nameInput()">Click to input your info</button>
+    <br><br><br><br><br>
+    <hr>
+</body>
+<script>
+    // Bài tập 01 input your name/ your age
+    function nameInput() {
+        let name = prompt("名前を記入してください:");
+        let age = prompt("年齢を記入してください:");
+        if (name != null && age != null) {
+            document.write("初めまして、私は <b>" + name + "</b>と申します。<br>");
+            document.write("今年は <u>" + age + "</u> 歳です。<br>");
+            document.write("よろしくお願いいたします。");
+        }
+    }
+</script>
+</html>
