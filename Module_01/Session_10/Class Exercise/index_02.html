@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    #form {
+        background-color: rgb(171, 208, 180);
+        margin:  0 auto;
+        border-radius: 15px;
+        width: 80%;
+    }
+    td {
+        width: 300px;
+        font-size: 20px;
+    }
+    button {
+        font-size: 14px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    p {
+        font-size: 16px;
+    }
+</style>
+<body>
+    <fieldset id="form">
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <td><label for="amount">Amount</label></td>
+                    <td><label for="fromcurrency">From Currency: </label></td>
+                    <td><label for="tocurrency">To Currency: </label></td>
+                    <td rowspan="2"><button type="button" onclick="exchangeCurrency();">Convert</button></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="amount" id="currency"></td>
+                    <td>
+                        <select name="fromcurrency" id="fromcurrency">
+                            <option value="vnd">VND</option>
+                            <option value="usd">USA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="tocurrency" id="tocurrency">
+                            <option value="usd">USD</option>
+                            <option value="vnd">VND</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <p>Result: <span id="result"></span> <span id="convertcurrency"></span></p>
+        </form>
+    </fieldset>
+</body>
+<script>
+    function exchangeCurrency() {
+        let from, to, currency, exchange;
+        from = document.getElementById("fromcurrency").value;
+        to = document.getElementById("tocurrency").value;
+        currency = parseFloat(document.getElementById("currency").value);
+        if (from === to) {
+            alert("Vui lòng lựa chọn hai đơn vị tiền tệ khác nhau.");
+        }
+        else {if ((from == "vnd") && (to == "usd")) {
+                exchange = currency/24690;
+                document.getElementById("result").innerHTML = exchange;
+                document.getElementById("convertcurrency").innerHTML = "USD";
+            }
+            else {
+                exchange = currency*24690;
+                document.getElementById("result").innerHTML = exchange;
+                document.getElementById("convertcurrency").innerHTML = "VND";
+            }
+        }
+
+    }
+</script>
+</html>
