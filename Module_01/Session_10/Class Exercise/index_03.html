@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai tap 3</title>
+</head>
+<style>
+    * {
+        margin: 0 auto;
+    }
+    fieldset {
+        width: 100%;
+        background-color: antiquewhite;
+        margin: 0 auto;
+    }
+    td {
+        width: 300px;
+    }
+    button {
+        font-size: 16px;
+        background-color: aqua;
+        border-radius: 7px;
+    }
+</style>
+<body>
+    <fieldset>
+        <form action="#" method="get">
+            <table>
+                <tr>
+                    <td colspan="2"><input type="text" name="number1" id="num_1"></td>
+                    <td colspan="2"><input type="text" name="number2" id="num_2"></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="addition();">Addition (+)</button></td>
+                    <td><button type="button" onclick="subtraction();">Subtraction (-)</button></td>
+                    <td><button type="button" onclick="multiplication();">Multiplication (x)</button></td>
+                    <td><button type="button" onclick="division();">Division (-)</button></td>
+                    <td><button type="button" onclick="allInOne();">All in One</button></td>
+                </tr>
+                <tr>
+                    <td>Result for +: <span id="add__result"></span></td>
+                    <td>Result for -: <span id="sub__result"></span></td>
+                    <td>Result for x: <span id="multi__result"></span></td>
+                    <td>Result for /: <span id="div__result"></span></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+</body>
+<script>
+    var number1, number1, add, sub, multip, div;
+
+    function addition() {
+        number1 = parseFloat(document.getElementById("num_1").value);
+        number2 = parseFloat(document.getElementById("num_2").value);
+        add = number1 + number2;
+        if (isNaN(number1) || isNaN(number2)){
+            alert("Giá trị chưa được nhập vào");
+        }
+        else {
+            document.getElementById("add__result").innerHTML = add;
+        }
+    }
+    function subtraction() {
+        number1 = parseFloat(document.getElementById("num_1").value);
+        number2 = parseFloat(document.getElementById("num_2").value);
+        sub = number1 - number2;
+        if (isNaN(number1) || isNaN(number2)){
+            alert("Giá trị chưa được nhập vào");
+        }
+        else {
+            document.getElementById("sub__result").innerHTML = sub;
+        }
+    }
+    function multiplication() {
+        number1 = parseFloat(document.getElementById("num_1").value);
+        number2 = parseFloat(document.getElementById("num_2").value);
+        multip = number1 * number2;
+        if (isNaN(number1) || isNaN(number2)){
+            alert("Giá trị chưa được nhập vào");
+        }
+        else {
+            document.getElementById("multi__result").innerHTML = multip;
+        }
+    }
+    function division() {
+        number1 = parseFloat(document.getElementById("num_1").value);
+        number2 = parseFloat(document.getElementById("num_2").value);
+        div = number1 / number2;
+        if (isNaN(number1) || isNaN(number2)){
+            alert("Giá trị chưa được nhập vào");
+        }
+        else {
+            document.getElementById("div__result").innerHTML = div;
+        }
+    }
+        function allInOne() {
+            number1 = parseFloat(document.getElementById("num_1").value);
+            number2 = parseFloat(document.getElementById("num_2").value);
+            add = number1 + number2;
+            sub = number1 - number2;
+            multip = number1 * number2;
+            div = number1 / number2;
+            if (isNaN(number1) || isNaN(number2)){
+                alert("Giá trị chưa được nhập vào");
+            }
+            else {
+                document.getElementById("add__result").innerHTML = add;
+                document.getElementById("sub__result").innerHTML = sub;
+                document.getElementById("multi__result").innerHTML = multip;
+                document.getElementById("div__result").innerHTML = div;
+            }
+        }
+    // function allInOne() {
+    //     addition();
+    //     subtraction();
+    //     multiplication();
+    //     division();
+    // }
+</script>
+</html>

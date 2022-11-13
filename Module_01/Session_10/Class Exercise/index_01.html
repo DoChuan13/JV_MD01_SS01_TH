@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập trên lớp 01</title>
+</head>
+<body>
+    <button type="button" onclick="arithmetic();">Click để giải toán trung bình</button>
+    <hr>
+    <button type="button" onclick="temperature();">Chuyển đổi độ C sang K</button>
+    <hr>
+    <button type="button" onclick="areaCicle();">Tính diện tích đường tròn</button>
+    <hr>
+    <button type="button" onclick="perimeter();">Chu vi hình tròn</button>
+    <hr>
+</body>
+<script>
+    // Baitap 1.1
+    function arithmetic() {
+        var phisics, chemistry, biology, tong, tbc;
+        phisics = prompt("Nhập điểm vật lý: ");
+        chemistry = prompt("Nhập điểm hóa học: ");
+        biology = prompt("Nhập điểm sinh học: ");
+        tong = parseFloat(phisics)+parseFloat(chemistry)+parseFloat(biology);
+        tbc = tong/3;
+        document.write("Điểm môn vật lý: " + phisics);
+        document.write("<br>Điểm môn hóa học: " + chemistry);
+        document.write("<br>Điểm môn sinh học: " + biology);
+        document.write("<br>Tổng điểm 3 môn là: " + tong);
+        document.write("<br>Điểm trung bình 3 môn là: "+ tbc);
+    }
+    // Baitap 1.2
+    function temperature() {
+        var degree, kevin;
+        degree = prompt("Nhập nhiệt độ C: ")
+        kevin = parseFloat(degree)*9/5+32;
+        document.write("Giá trị nhiệt độ C: " + degree);
+        document.write("<br>Giá trị nhiệt độ K: " + kevin);
+    }
+    // Baitap 1.3
+    function areaCicle() {
+        var r, area;
+        r = prompt("Nhập vào bán kính đường tròn: ");
+        area = (Math.PI) * (parseFloat(r))**2;
+        document.write("Bán kính đường tròn: " + r); 
+        document.write("<br>Diện tích đường tròn: " + area);  
+    }
+    // Baitap 1.4
+    function perimeter() {
+        var r, perimeter;
+        r = prompt("Nhập vào bán kính đường tròn: ");
+        perimeter = 2*(Math.PI) * (parseFloat(r));
+        document.write("Bán kính đường tròn: " + r); 
+        document.write("<br>Diện tích đường tròn: " + perimeter);  
+    }
+</script>
+</html>
