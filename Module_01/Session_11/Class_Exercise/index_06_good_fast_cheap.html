@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Cheap Fast</title>
+</head>
+<style>
+    form {
+        width: 20%;
+        background-color: aquamarine;
+    }
+    label {
+        display: inline-block;
+        width: 60px;
+    }
+</style>
+<body>
+    <form action="#" method="get">
+        <label for="good">Good:</label>
+        <input type="range" min="0" max="5" name="good" id="good" onclick="changeGood();"><br>
+        <label for="cheap">Cheap:</label>
+        <input type="range" min="0" max="5" name="cheap" id="cheap" onclick="changeCheap();"><br>
+        <label for="fast">Fast:</label>
+        <input type="range" min="0" max="5" name="fast" id="fast" onclick="changeFast();"><br>
+    </form>
+</body>
+<script>
+    let good = false;
+    let cheap = false;
+    let fast = false;
+    function changeGood() {
+       good = !good;
+        if (good) {
+            document.getElementById('good').value = 5;
+            if(cheap&&fast){
+                document.getElementById('fast').value = 0;
+                fast = false;
+            }
+        } else {
+            document.getElementById('good').value = 0;
+        }
+        console.log('good = ', good);
+    }
+    function changeCheap() {
+        cheap = !cheap;
+        if (cheap) {
+            document.getElementById('cheap').value = 5;
+            if(good && fast){
+                document.getElementById('good').value = 0;
+                good = false;
+            }
+        } else {
+            document.getElementById('cheap').value = 0;
+        }
+        console.log('cheap = ', cheap);
+    }
+    function changeFast() {
+        fast = !fast;
+        console.log('fast = ', fast);
+        if (fast) {
+            document.getElementById('fast').value = 5;
+            if(good&&cheap){
+                document.getElementById('good').value = 0;
+                good = false;
+            }
+        } else {
+            document.getElementById('fast').value = 0;
+        }
+        console.log('good = ', fast);
+    }
+</script>
+</html>
