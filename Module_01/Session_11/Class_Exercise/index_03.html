@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3</title>
+</head>
+<style>
+    * {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+    table {
+        border: 1px solid black;
+    }
+    th {
+        background-color: lightgray;
+        height: 50px;
+    }
+    td {
+        width: 80px;
+        height: 50px;
+        /* border: 1px solid black; */
+    }
+    button {
+        width: 80px;
+        height: 50px;
+        background-color: pink;
+        border-radius: 8px;
+    }
+    .double_size {
+        width: 170px;
+        background-color:aquamarine;
+    }
+    .operator {
+        background-color: lightblue;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <th colspan="4"><div id="final_result"></div></th>
+        </tr>
+        <tr>
+            <td colspan="2"><button class="double_size" type="button" onclick="reset();">AC</button></td>
+            <td><button type="button" onclick="inputValue('%100');">%</button></td>
+            <td><button class="operator" type="button" onclick="inputValue('add');">+</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="inputValue(7);">7</button></td>
+            <td><button type="button" onclick="inputValue(8);">8</button></td>
+            <td><button type="button" onclick="inputValue(9);">9</button></td>
+            <td><button class="operator" type="button" onclick="inputValue('sub');">-</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="inputValue(4);">4</button></td>
+            <td><button type="button" onclick="inputValue(5);">5</button></td>
+            <td><button type="button" onclick="inputValue(6);">6</button></td>
+            <td><button class="operator" type="button" onclick="inputValue('multi');">x</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="inputValue(1);">1</button></td>
+            <td><button type="button" onclick="inputValue(2);">2</button></td>
+            <td><button type="button" onclick="inputValue(3);">3</button></td>
+            <td><button class="operator" type="button" onclick="inputValue('div');">/</button></td>
+        </tr>
+        <tr>
+            <td><button class="operator" type="button" onclick="undo();">DEL</button></td>
+            <td><button type="button" onclick="inputValue(0);">0</button></td>
+            <td><button type="button" onclick="inputValue('.');">,</button></td>
+            <td><button class="operator" type="button" onclick="equal();">=</button></td>
+        </tr>
+    </table>
+</body>
+<script>
+    function inputValue(x) {
+        if ((typeof x)=='number') {
+            document.getElementById("final_result").innerHTML += x;
+        }
+        else {
+            switch (x) {
+                case 'add':
+                    document.getElementById("final_result").innerHTML += "+";
+                    break;
+            }
+            switch (x) {
+                case 'sub':
+                    document.getElementById("final_result").innerHTML += "-";
+                    break;
+            }
+            switch (x) {
+                case 'multi':
+                    document.getElementById("final_result").innerHTML += "*";
+                    break;
+            }
+            switch (x) {
+                case 'div':
+                    document.getElementById("final_result").innerHTML += "/";
+                    break;
+            }
+            switch (x) {
+                case '%100':
+                    document.getElementById("final_result").innerHTML += "/100";
+                    break;
+            }
+            switch (x) {
+                case '.':
+                    document.getElementById("final_result").innerHTML += ".";
+                    break;
+            }
+        }
+    }
+    function reset() {
+        document.getElementById("final_result").innerHTML="";
+    }
+    function equal() {
+        let result = document.getElementById("final_result").innerHTML;
+        let output = eval(result);
+        document.getElementById("final_result").innerHTML = output;
+        return;
+    }
+    function undo() {
+        let result = document.getElementById("final_result").innerHTML;
+        document.getElementById("final_result").innerHTML = result.substring(0, result.length-1);
+        result.substring
+        return;
+    }
+</script>
+</html>
