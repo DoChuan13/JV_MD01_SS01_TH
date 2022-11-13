@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7 tổng hợp</title>
+</head>
+<body>
+    <button type="button" onclick="abCheck();">Kiểm tra a/b</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="checkAge();">Kiểm tra tuổi vào 10</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="checkInterger();">Kiểm tra số nguyên</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="maxNumberCheck();">Max number check</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="hocluc()">Xếp hạng học lực</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="Sale();">Tinh doanh số hoa hồng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="phoneCharges();">Phone Charges</button>
+</body>
+<script>
+    // BÀI TẬP 01
+    function abCheck () {
+        let a = parseFloat(prompt("Nhập số a: "));
+        let b = parseFloat(prompt("Nhập số b: "));
+        if (b == 0) {
+            alert(a + " không thể chia được cho 0");
+        }
+        else if ( a%b == 0) {
+            alert(a + " chia hết cho " + b);
+        }
+        else {
+            alert(a + " KHÔNG chia hết cho " + b);
+        }
+    }
+    // BÀI TẬP 02
+    function checkAge() {
+        let age = parseInt(prompt("Nhập tuổi của học sinh: "));
+        if (age < 15) {
+            document.write(age);
+            document.write("<br>");
+            document.write("Học sinh tuổi " + age + " KHÔNG đủ điều kiện vào lớp 10");
+        }
+        else {
+            document.write(age);
+            document.write("<br>");
+            document.write("Học sinh tuổi " + age + " ĐẠT đủ điều kiện vào lớp 10");
+        }
+    }
+    // BÀI TẬP 03
+    function checkInterger() {
+        let number = parseInt(prompt("Nhập số nguyên: "));
+        if (number == 0) {
+            document.write("Đây là số " + number + " cmnr");
+        }
+        else if (number < 0) {
+            document.write("Số " + number + " nhỏ hơn 0");
+        }
+        else {
+            document.write("Số " + number + " lớn hơn 0");
+        }
+    }
+    // BÀI TẬP 04
+    function maxNumberCheck () {
+        let a, b, c;
+        a = parseFloat(prompt("Nhập vào số a: "));
+        do {
+            b = parseFloat(prompt("Nhập vào số b: "));
+            if (b==a) {
+                alert(a + " giống với " + b + " rồi, nhập lại số khác đi");
+            }
+        } while (b==a);
+        do {
+            c = parseFloat(prompt("Nhập vào số c: "));
+            if (c==a || c==b) {
+                alert(c + " giống với " + a + " hoặc " + b + " rồi, nhập lại số khác đi");
+            }
+        } while (c==a || c==b);
+        if (a >b & a>c) {
+            document.write("Số " + a + " là số lớn nhất");
+        }
+        else if (b>c) {
+            document.write("Số " + b + " là số lớn nhất");
+        }
+        else {
+            document.write("Số " + c + " là số lớn nhất");
+        }
+    }
+    // BÀI TẬP 05
+    function hocluc () {
+        let ktra, giuaky, cuoiky, tongdiem;
+        ktra = parseFloat(prompt("Nhập điểm kiểm tra"));
+        giuaky = parseFloat(prompt("Nhập điểm giữa kỳ"));
+        cuoiky = parseFloat(prompt("Nhập điểm cuối kỳ"));
+        tongdiem = (ktra + 2*giuaky + 3* cuoiky)/6;
+        if (tongdiem>=8.0) {
+            document.write("Học sinh đạt thành tích học tập giỏi với điểm trung bình " +tongdiem);
+        }
+        else {
+            if (tongdiem>=7.0) {
+                document.write("Học sinh đạt thành tích học tập khá với điểm trung bình " +tongdiem);
+            }
+            else {
+                if(tongdiem>=5.0) {
+                    document.write("Học sinh đạt thành tích học tập trung bình với điểm trung bình " +tongdiem);
+                }
+                else {
+                    document.write("Học sinh không đủ điều kiện qua môn với điểm trung bình " +tongdiem);
+                }
+            }
+        }
+    }
+    // BÀI TẬP 06
+    function Sale() {
+        let income, commission;
+        income = parseFloat(prompt("Nhập tổng doanh số bán hàng ($): "));
+        if (income >= 10000) {
+            commission = income*20/100;
+            document.write("Tiền hoa hồng nhận được tương ứng với doanh số " + income + "$ và tỉ lệ hoa hồng 20% là " +commission + "$");
+        }
+        else{
+            if (income >= 5000) {
+                commission = income*15/100;
+                document.write("Tiền hoa hồng nhận được tương ứng với doanh số " + income + "$ và tỉ lệ hoa hồng 15% là " +commission + "$");
+            }
+            else {
+                if(income >= 2000) {
+                    commission = income*10/100;
+                    document.write("Tiền hoa hồng nhận được tương ứng với doanh số " + income + "$ và tỉ lệ hoa hồng 10% là " +commission + "$");
+                }
+                else {
+                    commission = income*5/100;
+                    document.write("Tiền hoa hồng nhận được tương ứng với doanh số " + income + "$ và tỉ lệ hoa hồng 5% là " +commission + "$");
+                }
+            }
+        }
+    }
+    // BÀI TẬP 07
+    function phoneCharges () {
+        let minutes, sum;
+        minutes = parseFloat(prompt("Nhập thời gian sử dụng điện thoại: "));
+        if (minutes >=200) {
+            sum = 25000 + (600*50) + (400+150) + (200*(200-minutes));
+            document.write("Tổng cước điện thoại cho  " + minutes + " phút là " + sum + "VND");   
+        }
+        else if (minutes >=50) {
+            sum = 25000 + (600*50) + (150-minutes);
+            document.write("Tổng cước điện thoại cho  " + minutes + " phút là " + sum + "VND"); 
+        }
+        else {
+            sum = 25000 + (600*(minutes-50));
+            document.write("Tổng cước điện thoại cho  " + minutes + " phút là " + sum + "VND"); 
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Picture</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        /* margin: 0 auto; */
+    }
+    table {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+    tr {
+        border: 0;
+    }
+    td {
+        border: 0px solid rebeccapurple;
+        width: 255px;
+        height: 200px;
+        margin: 0 0;
+        padding: 0 0;
+        text-align: center;
+    }
+    .img_format {
+        width: 250px;
+        /* height: 100%; */
+        margin: 0 0;
+        padding: 0 0; 
+        box-shadow: red 4px 4px 9px;
+    }
+</style>
+<body>
+    <!-- <div>
+        <img id="img01" src="assets/images/conan-02_01.jpg" alt="conan-01" onclick="changeImage(0);">
+        <img src="assets/images/conan-01_02.jpg" alt="conan-02" id="img02" onclick="changeImage(1);">
+        <img src="assets/images/conan-01_03.jpg" alt="conan-03" id="img03" onclick="changeImage(2);">
+        <img src="assets/images/conan-01_04.jpg" alt="conan-04" id="img04" onclick="changeImage(3);">
+        <img src="assets/images/conan-01_05.jpg" alt="conan-05" id="img05" onclick="changeImage(4);">
+        <img src="assets/images/conan-01_06.jpg" alt="conan-06" id="img06" onclick="changeImage(5);">
+        <img src="assets/images/conan-01_07.jpg" alt="conan-07" id="img07" onclick="changeImage(6);">
+        <img src="assets/images/conan-01_08.jpg" alt="conan-08" id="img08" onclick="changeImage(7);">
+        <img src="assets/images/conan-01_09.jpg" alt="conan-09" id="img09" onclick="changeImage(8);">
+    </div> -->
+    <table>
+        <tr>
+            <td><img class="img_format" src="assets/images/conan-02_01.jpg" alt="conan-01" id="img01" onclick="changeImage(1);"></td>
+            <td><img class="img_format" src="assets/images/conan-01_02.jpg" alt="conan-02" id="img02" onclick="changeImage(2);"></td>
+            <td><img class="img_format" src="assets/images/conan-03_03.jpg" alt="conan-03" id="img03" onclick="changeImage(3);"></td>
+        </tr>
+        <tr>
+            <td><img class="img_format" src="assets/images/conan-03_04.jpg" alt="conan-04" id="img04" onclick="changeImage(4);"></td>
+            <td><img class="img_format" src="assets/images/conan-02_05.jpg" alt="conan-05" id="img05" onclick="changeImage(5);"></td>
+            <td><img class="img_format" src="assets/images/conan-01_06.jpg" alt="conan-06" id="img06" onclick="changeImage(6);"></td>
+        </tr>
+        <tr>
+            <td><img class="img_format" src="assets/images/conan-01_07.jpg" alt="conan-07" id="img07" onclick="changeImage(7);"></td>
+            <td><img class="img_format" src="assets/images/conan-03_08.jpg" alt="conan-08" id="img08" onclick="changeImage(8);"></td>
+            <td><img class="img_format" src="assets/images/conan-02_09.jpg" alt="conan-09" id="img09" onclick="changeImage(9);"></td>
+        </tr>
+    </table>
+    <div class="test"></div>
+</body>
+<script>
+    let array = [3,2,1,1,3,2,2,1,3];
+    let fulUrl, idVar;
+    function changeImage(x) {
+        idVar = "img0"+x;
+        fullUrl = "assets/images/conan-0" + array[x-1] + "_0" + x +".jpg";
+        if ((array[x-1]==1) || (array[x-1]==2) || (array[x-1]==3)) {
+            document.getElementById(idVar).src = fullUrl;
+        }
+        else {
+            document.getElementById(idVar).src = fullUrl;
+            array[x-1] = 0;
+        }
+        array[x-1]++; 
+        checkMatch ();
+        // document.write(array);
+        // document.getElementById("test").innerHTML = array;
+    }
+    let i, count, checkValue;
+    function checkMatch () {
+        checkValue = array[0];
+        count = 0;
+        for(i=0; i<9; i++) {
+            if (array[i] == checkValue) {
+            count++;
+            }
+        }
+        if(count==9) {
+            for (i=0; i<9; i++) {
+                document.getElementsByClassName("img_format")[i].style.boxShadow = 'blue 4px 4px 9px';
+            }
+            // alert("Bạn đã sắp xếp chính xác rồi đó");
+        }
+        else {
+            for (i=0; i<9; i++) {
+                document.getElementsByClassName("img_format")[i].style.boxShadow = 'red 4px 4px 9px';
+            }
+        }
+    }
+    document.getElementById("test").innerHTML = array;
+</script>
+</html>
