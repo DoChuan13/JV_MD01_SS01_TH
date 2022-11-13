@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vòng lặp Do While</title>
+</head>
+<body>
+    <button type="button" onclick="doWhile();">Vòng lặp Do While</button>
+</body>
+<script>
+    function doWhile() {
+        let value = null;
+        do {
+          value = prompt("Nhập vào số từ 1 -> 10");
+        } while (value < 1 || value > 10);
+        alert("Số bạn vừa nhập là " + value);
+    }
+</script>
+</html>

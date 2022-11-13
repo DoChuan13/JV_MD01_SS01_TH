@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vòng lặp For 1</title>
+</head>
+<body>
+    <button type="button" onclick="forLoop();">For Loop</button>
+    <p id="foolop"></p>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="totalSum();">Total Sum</button>
+</body>
+<script>
+    // BAI TAP 01
+    function forLoop() {
+        let i;
+        for (i=0; i<5; i++) {
+            text="The number is " + i +"<br>";
+            document.write(text);
+        }
+    }
+    // BAI TAP 01
+    function totalSum() {
+        let i, num, totalsum;
+        totalsum = 0;
+        num = parseInt(prompt("Nhập vào số nguyên dương: "));
+        for (i=1; i<=num; i++) {
+            totalsum = totalsum + i;
+        }
+        alert("Tổng của chuỗi số là: " + totalsum);
+    }
+</script>
+</html>
