@@ -67,11 +67,10 @@
 </body>
 <script>
     let array = [3,2,1,1,3,2,2,1,3];
-    let fulUrl, idVar, position;
+    let fulUrl, idVar;
     function changeImage(x) {
         idVar = "img0"+x;
-        position = array[x-1]++;
-        fullUrl = "assets/images/conan-0" + position + "_0" + x +".jpg";
+        fullUrl = "assets/images/conan-0" + array[x-1] + "_0" + x +".jpg";
         if ((array[x-1]==1) || (array[x-1]==2) || (array[x-1]==3)) {
             document.getElementById(idVar).src = fullUrl;
             array[x-1]++; 
@@ -105,6 +104,5 @@
             }
         }
     }
-    document.getElementById("test").innerHTML = array;
 </script>
 </html>
