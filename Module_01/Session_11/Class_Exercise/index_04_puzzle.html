@@ -27,11 +27,11 @@
         text-align: center;
     }
     .img_format {
+        box-shadow: red 4px 4px 9px;
         width: 250px;
         /* height: 100%; */
         margin: 0 0;
         padding: 0 0; 
-        box-shadow: red 4px 4px 9px;
     }
 </style>
 <body>
@@ -67,10 +67,11 @@
 </body>
 <script>
     let array = [3,2,1,1,3,2,2,1,3];
-    let fulUrl, idVar;
+    let fulUrl, idVar, position;
     function changeImage(x) {
         idVar = "img0"+x;
-        fullUrl = "assets/images/conan-0" + array[x-1] + "_0" + x +".jpg";
+        position = array[x-1]++;
+        fullUrl = "assets/images/conan-0" + position + "_0" + x +".jpg";
         if ((array[x-1]==1) || (array[x-1]==2) || (array[x-1]==3)) {
             document.getElementById(idVar).src = fullUrl;
             array[x-1]++; 
