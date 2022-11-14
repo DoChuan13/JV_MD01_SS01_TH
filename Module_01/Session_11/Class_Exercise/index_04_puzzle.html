@@ -73,12 +73,12 @@
         fullUrl = "assets/images/conan-0" + array[x-1] + "_0" + x +".jpg";
         if ((array[x-1]==1) || (array[x-1]==2) || (array[x-1]==3)) {
             document.getElementById(idVar).src = fullUrl;
+            array[x-1]++; 
         }
         else {
             document.getElementById(idVar).src = fullUrl;
-            array[x-1] = 0;
+            array[x-1] = 1;
         }
-        array[x-1]++; 
         checkMatch ();
         // document.write(array);
         // document.getElementById("test").innerHTML = array;
