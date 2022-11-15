@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 05</title>
+</head>
+<body>
+    <button type="button" onclick="fibonacci();">In ra dãy số Fibonacci</button>
+    <br><br><br><hr>
+    <button type="button" onclick="factorial();">Phép tính giai thừa</button>
+    <br><br><br><hr>
+    <button type="button" onclick="triangle();">Right Trianble</button>
+    <br><br><br><hr>
+    <button type="button" onclick="triangle2();">Right Trianble (Advanced)</button>
+    <br><br><br><hr>
+    <button type="button" onclick="rectangle();">Rectangle</button>
+    <br><br><br><hr>
+    <button type="button" onclick="interestRate();">Interest Rate</button>
+    <br><br><br><hr>
+    <button type="button" onclick="drawHeart();">Draw Heart</button>
+    <br><br><br><hr>
+</body>
+<script>
+
+        // Bài tập 1: Dãy Fibonacci
+        function fibonacci() {
+        let i, f0, f1, nextfi, nums;
+        nums = parseInt(prompt("Nhập số lượng Fibonacci muốn in ra: "));
+        i=0;
+        f0=0;
+        f1=1;
+        nextfi=1;
+        while(i<nums) {
+            if(i<1) {
+                nextfi = i;
+            }
+            else {
+                f0=f1;
+                f1=nextfi;
+                nextfi=f0+f1;
+            }
+            document.write(nextfi);
+            document.write(", ");
+            i++;
+        }
+    }
+    // Bài tập 2: Phép tính giai thừa
+    function factorial() {
+        let i, num, factorial;
+        num = parseInt(prompt("Nhập vào một số nguyên dương: "));
+        factorial = 1;
+        for(i=1;i<=num;i++) {
+            factorial*=i;
+        }
+        document.write("Kết quả gia thừa của " + num + " là: " + factorial);
+    }
+    // Bài tập 3: Right triangle (1)
+    function triangle() {
+        let i, j, str;
+        for (i=0;i<=10;i++) {
+            str = '';
+            for(j=0;j<=i;j++) {
+                str = str + "*";
+            }
+            document.write(str);
+            document.write("<br>"); 
+        }
+        document.write("<br>"); 
+        for (i=0;i<=10;i++) {
+            str = '';
+            for(j=10-i;j>=0;j--) {
+                str = str + "*";
+            }
+            document.write(str);
+            document.write("<br>"); 
+        }
+        document.write("<br>"); 
+        for (i=0;i<=10;i++) {
+            str = '';
+            for(j=0;j<=10;j++) {
+                if (j<=9-i) {
+                    str = str + "_";
+                    continue;
+                }
+                str = str + "*";
+            }
+            document.write(str);
+            document.write("<br>"); 
+        }
+        document.write("<br>"); 
+        for (i=0;i<=10;i++) {
+            str = '';
+            for(j=0;j<=10;j++) {
+                if (j<i) {
+                    str = str + "_";
+                    continue;
+                }
+                str = str + "*";
+            }
+            document.write(str);
+            document.write("<br>"); 
+        }
+    }
+        // Bài tập 3: Right triangle (2)
+        function triangle2() {
+        let i, j, str;
+        for (i=0;i<=10;i++) {
+            str = '';
+            for(j=20;j>=0;j--) {
+                if(j>10-i && j<10+i) {
+                    str = str + '_';
+                    continue;
+                }
+                str = str + '*';
+            }
+            document.write(str);
+            document.write("<br>");
+        }
+        for (i=0;i<=10;i++) {
+            str = '';
+            for(j=0;j<=20;j++) {
+                if(j>=i+1 && j<=19-i) {
+                    str = str + '_';
+                    continue;
+                }
+                str = str + '*';
+            }
+            document.write(str);
+            document.write("<br>");
+        }
+    }
+    //Bài tập 4: In hình chữ nhật
+    function rectangle() {
+        let i, j, a, b, len;
+        a = parseInt(prompt("Nhập kích thước a hình chữ nhật: "));
+        b = parseInt(prompt("Nhập kích thước b hình chữ nhật: "));
+        for(i=1;i<=a;i++) {
+            len='';
+            for(j=1;j<=b;j++) {
+                if(i==1 || i==a) {
+                    len=len + "*";
+                    continue;
+                }
+                else if (i>1 && i<a) {
+                    if (j>1 && j<b) {
+                        len=len + "_";
+                        continue;
+                    }
+                    else {
+                        len=len + "*";
+                    }
+                }
+            }
+            document.write(len);
+            document.write("<br>");
+        }
+
+    }
+    // Bài tập 5: Lãi suất ngân hàng
+    function interestRate() {
+        let money, month, rate, interest;
+        money = parseFloat(prompt("Nhập số tiền gửi tiết kiệm (triệu VND): "));
+        month = parseFloat(prompt("Nhập số tháng tiết kiệm (tháng): "));
+        rate = parseFloat(prompt("Nhập lãi suất gửi hàng tháng (%): "));
+        interest = money*(((1+(rate/100))**month)-1)/(rate/100);
+        document.write("Số tiền tiết kiệm ban đầu: " + money + " triệu VND, sau " + month + " tháng, với lãi suất " + rate + "%/tháng, tổng số tiền thu về là: " + interest)  
+    }
+    // Bài tập 6: Draw Heart
+    function drawHeart() {
+        let i, j, str;
+        for (i=1;i<7;i++) {
+            // str='';
+            for(j=1;j<=7;j++) {
+                if(!((i==1 && (j==1 || j==4 || j==7))  ||  (i==4 && (j==1 || j==7))  ||(i==5 && (j<=2 || j>=6))  ||  (i==6 && (j<=3 || j>=5))))
+                    {
+                        document.write('**');
+                    }
+                else {
+                    document.write('__');
+                }
+            }
+            // document.write(str);
+            document.write("<br>");
+        }
+    }
+</script>
+</html>

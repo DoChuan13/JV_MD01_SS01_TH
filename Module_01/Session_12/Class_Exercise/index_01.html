@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+    
+</body>
+<script>
+    // function Table() {
+        // let table, i, j;
+        // table = "<table border='1' width='500' cellspacing='5' cellpadding='10'>"; i = j = 1;
+        // while (i <= 10) {
+        //     table = table + "<tr>"; 
+        //     while (j <= 10) {
+        //         table = table + "<td align ='center'>" + j + "x" + i + "=" + i*j + "</td>";
+        //         j++; 
+        //     }
+        //     table = table + "</tr>"; 
+        //     j = 1;
+        //     i++;
+        // }
+        // table = table + "</table>";
+        // document.write(table);
+        
+
+        let table, i, j;
+        table = "<table border='1' width='500' cellspacing='5' cellpadding='10'>"; i = j = 1;
+        for ( i = 1; i <= 10; i++) {
+            table = table + "<tr>"; 
+            for (j=1; j <= 10; j++) {
+                table = table + "<td align ='center'>" + j + "x" + i + "=" + i*j + "</td>";
+            }
+            table = table + "</tr>"; 
+        }
+        table = table + "</table>";
+        document.write(table);
+    // }
+</script>
+</html>
