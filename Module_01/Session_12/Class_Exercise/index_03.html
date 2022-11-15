@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="Count100();">In ra số cần nhập</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="temp();">Kiểm tra nhiệt độ</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="fibonacci();">Dãy số Fibonacci</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="fibonacciMod05();">Số Fibonacci chia hết cho 5</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="sumFibonacci();">Tổng của dãy Fibonacci</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="sumMod07();">Tổng của các số chia hết cho 7</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="fizzBuzz();">Fizz Buzz 3-5</button>
+    <br><br><br>
+    <hr>
+    <h1>Trò chơi đoán số</h1>
+    <button type="button" onclick="Random();">Chơi</button>
+</body>
+<script>
+    // Bài 3.1: Bộ đếm 100
+    function Count100 () {
+        let i, inputnumber;
+        inputnumber = parseInt(prompt("Nhập số muốn hiện ra: "));
+        for (i=1; i<=100; i++) {
+            document.write(i);
+            document.write(", ");
+            if (i==inputnumber) {
+                alert("Số cần in ra: " + i + " đã hoàn thành");
+                break;
+            }
+        }
+    }
+
+    //Bai 3.2: Kiêm tra nhiệt độ
+    function temp() {
+        let temp;
+        temp=parseFloat(prompt("Nhập nhiệt độ C: "));
+        if ( temp>=100) {
+            alert("Nhiệt độ quá cao, hãy giảm xuống");
+        }
+        else if (temp<20) {
+            alert("Nhiệt độ quá thấp, hãy tăng lên");
+        }
+            else {
+                alert("Nhiệt độ tiêu chuẩn");
+            }
+    }
+
+    // Bài 3.3: Fibonacci
+    function fibonacci() {
+        let i, f0, f1, nextfi, nums;
+        nums = parseInt(prompt("Nhập số Fibonacci muốn in ra: "));
+        i=0;
+        f0=0;
+        f1=1;
+        nextfi=1;
+        while(i<nums) {
+            if(i<1) {
+                nextfi = i;
+            }
+            else {
+                f0=f1;
+                f1=nextfi;
+                nextfi=f0+f1;
+            }
+            document.write(nextfi);
+            document.write(", ");
+            i++;
+        }
+    }
+    // Bài 3.4: Fibonacci chia hết cho 5
+    function fibonacciMod05() {
+        let i, f0, f1, nextfi, exitloop;
+        i=1;
+        f0=0;
+        f1=1;
+        nextfi=1;
+        exitloop=0;
+        while(exitloop==0) {
+            if(i<1) {
+                nextfi = i;
+            }
+            else {
+                f0=f1;
+                f1=nextfi;
+                nextfi=f0+f1;
+            }
+            i++;
+            if (nextfi%5 == 0) {
+                document.write("Số Fibonacci khác 0 đầu tiên chia hết cho 5 là: ")
+                document.write(nextfi);
+                exitloop++;
+            }
+        }
+    }
+
+    // Bài 3.5: Tổng dãy Fibonacci
+    function sumFibonacci() {
+        let i, f0, f1, nextfi, total;
+        total = 0;
+        i=0;
+        f0=0;
+        f1=1;
+        nextfi=1;
+        while(i<20) {
+            if(i<1) {
+                nextfi = i;
+            }
+            else {
+                f0=f1;
+                f1=nextfi;
+                nextfi=f0+f1;
+            }
+            document.write(nextfi);
+            document.write(", ");
+            i++;
+            total+=nextfi;
+        }
+        document.write("<br> Tổng của 20 số Fibonacci đầu tiên là: " + total);
+    }
+    // Bài 3.6 Tổng của 30 số chia hết cho 7
+    function sumMod07 () {
+        let total, i, num;
+        num = parseInt(prompt("Nhập vào số muốn tính toán: "));
+        total=0;
+        for (i=1;i<=num;i++) {
+            total+=(i*7);
+            document.write(i*7 + ", ");
+        }
+        document.write("<br>Tổng của " +num + " số chia hết cho 7 là: " +total);
+    }
+    //Bài 3.7: fizzbuzz
+    function fizzBuzz() {
+        let i, numbers;
+        for (i=1;i<=100;i++) {
+            if (i%3==0 && i%5==0) {
+                document.write("FIZZBUZZ" + ", ");
+                continue;    
+            }
+            if (i%3==0) {
+                document.write("Fizz" + ", ");
+                continue;
+            }
+            if (i%5==0) {
+                document.write("Buzz" + ", ");
+                continue;
+            }   
+            document.write(i+ ", ");
+        }
+
+    }
+    //Bài 3.8: Đoán số.
+    function Random() {
+        let inputnumber, range, randomnumber;
+        prenumber = parseInt(prompt("Nhập vào khoảng số dự đoán:"));
+        randomnumber = parseInt(Math.random()*range);
+        console.log(randomnumber);
+        inputnumber = parseInt(prompt("Nhập vào số dự đoán:"));
+        while (inputnumber!=randomnumber) {
+            if(inputnumber>randomnumber) {
+                alert("Số dự đoán lớn hơn số ngẫu nhiên");
+            }
+            else {
+                alert("Số dự đoán nhỏ hơn số ngẫu nhiên");
+            }
+            inputnumber = parseInt(prompt("Nhập lại số dự đoán:"));
+        }
+        alert("Số dự đoán bằng số ngẫu nhiên");
+    }
+
+</script>
+</html>
