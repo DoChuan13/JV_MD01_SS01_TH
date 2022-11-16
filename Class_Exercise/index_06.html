@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 6</title>
+</head>
+
+<body>
+    <button type="button" onclick="TwoDimentionArray()">Bài 1: Mảng hai chiều</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="reverseArray()">Bài 2: Mảng đảo ngược</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="find_number_array()">Bài 3: Tìm ký tự số trong mảng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="count_character_str()">Bài 4: Đếm số từ trong 1 chuỗi</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="compare_str()">Bài 5: So sánh 2 chuỗi</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="replace_character_in_Array()">Bài 6: Thay thế ký tự trong mảng</button>
+    <br><br><br>
+    <hr>
+</body>
+<script>
+    //Bài tập 6.1: Bài tập mảng 2 chiều
+    function TwoDimentionArray() {
+        let a = [[1, 2, 1, 24],
+        [8, 11, 9, 4],
+        [7, 0, 7, 27],
+        [7, 4, 28, 14],
+        [3, 10, 26, 7]];
+        for (let i = 0; i < 5; i++) {
+            document.write("Row " + i + "<br>");
+            for (let j = 0; j < 4; j++) {
+                document.write(a[i][j] + "<br>");
+            }
+        }
+    }
+
+    //Bài tập 6.2: Mảng đảo ngược
+    function reverseArray() {
+        let reverseArray = [];
+        let range;
+        range = parseInt(prompt("Nhập kích thước của mảng: "));
+        for (let i = 0; i < range; i++) {
+            reverseArray[i] = prompt("Nhập phần tử thứ " + i + " trong mảng (start from 0).");
+        }
+        document.write("Mảng nhập vào ban đầu là: " + reverseArray + "<br>");
+        reverseArray.reverse();
+        document.write("Mảng sau khi đảo ngược là: " + reverseArray + "<br>");
+        document.write("Chuỗi mảng đảo ngược được in ra là: " + reverseArray.join(""));
+    }
+
+    //Bài tập 6.3: Tìm ký tự số trong mảng
+    function find_number_array() {
+        let characterArray = [];
+        let range;
+        let count = 0;
+        range = parseInt(prompt("Nhập kích thước của mảng: "));
+        for (let i = 0; i < range; i++) {
+            characterArray[i] = prompt("Nhập ký tự thứ " + i + " trong mảng (start from 0).");
+            if (!isNaN(parseInt(characterArray[i]))) {
+                // console.log(parseInt(characterArray[i]));
+                count++;
+            }
+        }
+        document.write("Mảng ban đầu nhập vào: " + characterArray + "<br>");
+        if (count == 0) {
+            document.write("Mảng nhập vào không có ký tự số.");
+        }
+        else {
+            document.write("Mảng nhập vào có " + count + " ký tự số.");
+        }
+    }
+
+    //Bài tập 6.4: Số từ trong 1 chuỗi.
+    function count_character_str() {
+        let str;
+        let count;
+        let strArray = [];
+        str = prompt("Nhập vào một chuỗi: ");
+        strArray = str.split(" ");
+        count = strArray.length;
+        // console.log(strArray);
+        document.write("Chuỗi nhập vào là: " + str + "<br>");
+        document.write("Chuỗi nhập vào có tất cả " + count + " từ.");
+    }
+
+    //Bài tập 6.5: So sánh hai chuỗi.
+    function compare_str() {
+        let str1, str2;
+        let str1Array = [];
+        let str2Array = [];
+        str1 = prompt("Nhập vào một chuỗi 1: ");
+        str2 = prompt("Nhập vào một chuỗi 2: ");
+        str1Array = str1.split(" ");
+        str2Array = str2.split(" ");
+        document.write("Chuỗi 1 là: " + str1 + "<br>");
+        document.write("Chuỗi 1 là: " + str2 + "<br>");
+        if (str1Array.length != str2Array.length) {
+            document.write("Hai chuỗi nhập vào KHÔNG khớp nhau")
+        }
+        else {
+            for (let i = 0; i < str1Array.length; i++) {
+                if (str1Array[i] != str2Array[i]) {
+                    document.write("Hai chuỗi nhập vào KHÔNG khớp nhau");
+                    break;
+                }
+                else {
+                    if (i == str1Array.length - 1) {
+                        document.write("Hai chuỗi nhập vào trùng khớp nhau hoàn toàn");
+                    }
+                }
+            }
+        }
+    }
+
+    //Bài tập 6.6: Thay thế ký tự trong mảng
+    function replace_character_in_Array() {
+        let strArray = [];
+        let range;
+        range = parseInt(prompt("Nhập kích thước của mảng: "));
+        for (let i = 0; i < range; i++) {
+            strArray[i] = prompt("Nhập phần tử thứ " + i + " trong mảng (start from 0).");
+        }
+        document.write("Mảng ban đầu nhập vào là: " + strArray + "<br>");
+        for (let i = 0; i < range; i++) {
+            if (strArray[i] == "-") {
+                strArray[i] = "_";
+            }
+        }
+        document.write("Mảng sau khi thay thế là: " + strArray);
+    }
+</script>
+
+</html>
