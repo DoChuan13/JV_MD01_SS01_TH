@@ -81,7 +81,7 @@
             str = '';
             for(j=0;j<=10;j++) {
                 if (j<=9-i) {
-                    str = str + "_";
+                    str = str + "&nbsp&nbsp";
                     continue;
                 }
                 str = str + "*";
@@ -94,7 +94,7 @@
             str = '';
             for(j=0;j<=10;j++) {
                 if (j<i) {
-                    str = str + "_";
+                    str = str + "&nbsp&nbsp";
                     continue;
                 }
                 str = str + "*";
@@ -110,7 +110,7 @@
             str = '';
             for(j=20;j>=0;j--) {
                 if(j>10-i && j<10+i) {
-                    str = str + '_';
+                    str = str + '&nbsp&nbsp';
                     continue;
                 }
                 str = str + '*';
@@ -122,7 +122,7 @@
             str = '';
             for(j=0;j<=20;j++) {
                 if(j>=i+1 && j<=19-i) {
-                    str = str + '_';
+                    str = str + '&nbsp&nbsp';
                     continue;
                 }
                 str = str + '*';
@@ -145,7 +145,7 @@
                 }
                 else if (i>1 && i<a) {
                     if (j>1 && j<b) {
-                        len=len + "_";
+                        len=len + "&nbsp&nbsp";
                         continue;
                     }
                     else {
@@ -178,7 +178,7 @@
                         document.write('**');
                     }
                 else {
-                    document.write('__');
+                    document.write('&nbsp&nbsp&nbsp&nbsp');
                 }
             }
             // document.write(str);
