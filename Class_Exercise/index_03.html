@@ -49,9 +49,12 @@
                     if(     board[i][j]===board[i+1][j]&&board[i+1][j]===board[i+2][j]
                         ||  board[i][j]===board[i+1][j+1]&&board[i+1][j+1]===board[i+2][j+2]
                         ||  board[i][j]===board[i][j+1]&&board[i+1][j]===board[i][j+2]) {
-
-
-                            
+                            if(board[i][j]=="x") {
+                                alert("Người chơi 1 đã chiến thắng.");
+                            }
+                            else if(board[i][j]=="o") {
+                                alert("Người chơi 2 đã chiến thắng.");
+                            }
                         }
                 }
             }
