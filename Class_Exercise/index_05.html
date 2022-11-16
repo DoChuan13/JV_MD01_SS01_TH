@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 05</title>
+</head>
+
+<body>
+    <button type="button" onclick="intergerArray()">Bài 1 Mảng số nguyên</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="maxArray()">Bài 2 Giá trị lớn nhất trong mảng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="max_avg_Array()">Bài 3 Giá trị lớn nhất và trung bình mảng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="reverseArray()">Bài 4 Nhập mảng và đảo ngược</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="negativeNumber()">Bài 5 Số nguyên âm trong mảng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="findNumber_Array()">Bài 6 Tìm số trong mảng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="removeNumber_Array()">Bài 7 Xóa phần tử khỏi mảng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="descending_Array()">Bài 8 Sắp xếp mảng giảm dần</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="concat_Array()">Bài 9 Nối hai mảng thành mảng mới</button>
+</body>
+<script>
+    //Bài tập 5.1: Mảng số nguyên
+    function intergerArray() {
+        let Int_array = [];
+        let Larger_array = [];
+        let count = 0;
+        for (let i = 0; i < 10; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập phần tử thứ ${i} trong mảng (Start from 0)`));
+            if (Int_array[i] >= 10) {
+                Larger_array.push(Int_array[i]);
+                count++;
+            }
+        }
+        document.write("Mảng đầu vào ban đầu là: " + Int_array + "<br>");
+        document.write("Trong mảng có " + count + " phần tử lớn hơn 10 là: " + Larger_array);
+    }
+
+    //Bài tập 5.2: Giá trị lớn nhất của mảng.
+    function maxArray() {
+        let Int_array = [];
+        let position = 1;
+        let maxvalue;
+        for (let i = 0; i < 10; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng (Start from 0)`));
+        }
+        maxvalue = Int_array[0];
+        for (let i = 0; i < 10; i++) {
+            if (Int_array[i] > maxvalue) {
+                maxvalue = Int_array[i];
+                position = i;
+            }
+        }
+        document.write("Mảng đầu vào ban đầu là: " + Int_array + "<br>");
+        document.write("Giá trị lớn nhất trong mảng là " + maxvalue + " và nằm tại vị trí thứ " + position + " (start from 0)");
+    }
+
+    //Bài tập 5.3: Giá trị lớn nhất của mảng và trung bình mảng
+    function max_avg_Array() {
+        let Int_array = [];
+        let total = 0;
+        let maxvalue, range;
+        range = parseInt(prompt("Nhập kích thước mảng khởi tạo: "));
+        for (let i = 0; i < range; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng (Start from 0)`));
+        }
+        maxvalue = Int_array[0];
+        for (let i = 0; i < range; i++) {
+            if (Int_array[i] > maxvalue) {
+                maxvalue = Int_array[i];
+                total += Int_array[i];
+            }
+        }
+        avg = parseFloat(total) / range;
+        document.write("Mảng đầu vào ban đầu là: " + Int_array + "<br>");
+        document.write("Giá trị lớn nhất trong mảng là " + maxvalue + "<br>");
+        document.write("Giá trị trung bình của mảng là: " + avg);
+    }
+
+    //Bài tập 5.4: Nhập và đảo ngược mảng
+    function reverseArray() {
+        let Int_array = [];
+        let range;
+        range = parseInt(prompt("Nhập kích thước mảng khởi tạo: "));
+        for (let i = 0; i < range; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng (Start from 0)`));
+        }
+        document.write("Mảng đầu vào ban đầu là: " + Int_array + "<br>");
+        Int_array.reverse();
+        document.write("Mảng sau khi đảo ngược là: " + Int_array + "<br>");
+    }
+
+    //Bài tập 5.5: Số âm trong mảng
+    function negativeNumber() {
+        let Int_array = [];
+        let range;
+        let count = 0;
+        range = parseInt(prompt("Nhập kích thước mảng chuỗi số khởi tạo: "));
+        for (let i = 0; i < range; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng (Start from 0)`));
+            if (Int_array[i] < 0) {
+                count++;
+            }
+        }
+        document.write("Mảng số đầu vào ban đầu là: " + Int_array + "<br>");
+        document.write("Mảng có: " + count + " số nguyên âm<br>");
+    }
+
+    //Bài tập 5.6: Tìm số trong mảng
+    function findNumber_Array() {
+        let Int_array = [];
+        let range;
+        let number;
+        range = parseInt(prompt("Nhập kích thước mảng chuỗi số khởi tạo: "));
+        for (let i = 0; i < range; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng (Start from 0)`));
+        }
+        number = parseInt(prompt("Nhập số cần tìm kiếm trong mảng: "));
+        document.write("Mảng số đầu vào ban đầu là: " + Int_array + "<br>");
+        document.write("Giá trị cần tìm kiếm là: " + number + "<br>");
+        for (let i = 0; i < range; i++) {
+            if (Int_array[i] == number) {
+                document.write("V is in the array");
+                break;
+            }
+            else if (i == range - 1) {
+                document.write("V is not in the array");
+            }
+        }
+
+    }
+
+    //Bài tập 5.7: Xóa phần tử nhập khỏi mảng
+    function removeNumber_Array() {
+        let Int_array = [];
+        let range;
+        let number;
+        range = parseInt(prompt("Nhập kích thước mảng chuỗi số khởi tạo: "));
+        for (let i = 0; i < range; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng (Start from 0)`));
+        }
+        number = parseInt(prompt("Nhập số cần tìm kiếm trong mảng: "));
+        document.write("Mảng số đầu vào ban đầu là: " + Int_array + "<br>");
+        document.write("Giá trị cần tìm kiếm là: " + number + "<br>");
+        for (let i = 0; i < range; i++) {
+            if (Int_array[i] == number) {
+                Int_array.splice(i, 1);
+                Int_array.push(0);
+                document.write("V thuộc mảng đã khởi tạo <br>");
+                break;
+            }
+            else if (i == range - 1) {
+                document.write("V không thuộc mảng đã khởi tạo <br>");
+            }
+        }
+        document.write("Mảng số sau cùng là: " + Int_array + "<br>");
+
+    }
+
+    //Bài tập 5.8: Sắp xếp mảng giảm dần
+    function descending_Array() {
+        let Int_array = [];
+        let range;
+        let number;
+        range = parseInt(prompt("Nhập kích thước mảng chuỗi số khởi tạo: "));
+        for (let i = 0; i < range; i++) {
+            Int_array[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng (Start from 0)`));
+        }
+        document.write("Mảng số đầu vào ban đầu là: " + Int_array + "<br>");
+        Int_array.sort(function (a, b) { return b - a })
+        document.write("Mảng số sau cùng là: " + Int_array + "<br>");
+
+    }
+
+    //Bài tập 5.9: Nối hai mảng concat
+    function concat_Array() {
+        let Int_array_a = [];
+        let Int_array_b = [];
+        let Int_array_c = [];
+        let range;
+        let number;
+        range = parseInt(prompt("Nhập kích thước mảng chuỗi số khởi tạo: "));
+        for (let i = 0; i < range; i++) {
+            Int_array_a[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng a (Start from 0)`));
+        }
+        for (let i = 0; i < range; i++) {
+            Int_array_b[i] = parseInt(prompt(`Nhập số thứ ${i} trong mảng b (Start from 0)`));
+        }
+        Int_array_c = Int_array_a.concat(Int_array_b);
+        document.write("Mảng a ban đầu là: " + Int_array_a + "<br>");
+        document.write("Mảng b ban đầu là: " + Int_array_b + "<br>");
+        document.write("Mảng c gộp lại là: " + Int_array_c + "<br>");
+    }
+</script>
+
+</html>

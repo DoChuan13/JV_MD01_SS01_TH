@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0 auto;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    div {
+        width: 30%;
+        background-color: aqua;
+        text-align: center;
+        border-radius: 10px;
+    }
+    textarea {
+        font-size: 16px;
+    }
+</style>
+
+<body onload="fake()">
+    <div>
+        <h1>Faking Taxtarea</h1>
+        <textarea name="" id="fake_text" cols="40px" rows="3px"></textarea>
+    </div>
+</body>
+<script>
+    let fake_array = [];
+    let str_Array = " Con cáo nâu nhanh nhẹn nhảy qua con chó lười biếng"; 
+    //The quick brown fox jumps over the lazy dog
+    fake_array = str_Array.split("");
+    let str = "";
+    console.log(fake_array);
+    function fake() {
+        let text = document.getElementById("fake_text").value;
+        for (let i = 1; i <= text.length; i++) {
+            str+=fake_array[i];
+            if (i==(fake_array.length)) {
+                str="";
+            }
+        }
+        document.getElementById("fake_text").value = str;
+        str = "";
+        setTimeout(fake, 1);
+    }
+</script>
+
+</html>
