@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 07_2</title>
+</head>
+<body>
+    <button type="button" onclick="tempChange();">Chuyển đổi nhiệt độ</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="doubleInter();">Tính lãi kép</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="triangle();">Kiểm tra 3 cạnh tam giác</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="incomeTax();">Thuế thu nhập cá nhân.</button>
+</body>
+<script>
+    // Chuyen doi nhiet do C - F
+    function tempChange() {
+        let tempC = parseFloat(prompt("Nhập nhiệt độ (degree): "));
+        let tempF = tempC*9/5 + 32;
+        alert("Nhiệt độ F là: " + tempF);
+    }
+    // Tinh lãi kép ngân hàng.
+    function doubleInter () {
+        let total, money, intRate, countTime, year;
+        money = parseFloat(prompt("Nhập số tiền gửi ban đầu"));
+        intRate = parseFloat(prompt("Nhập lãi suất tiền gửi: "));
+        countTime = parseFloat(prompt("Nhập số lần tiền lãi nhập gốc mỗi năm (theo quý): "));
+        year = parseFloat(prompt("Nhập số năm tiền gửi: "));
+        total = money*(1 + (intRate/100)/countTime)**(countTime*year);
+        document.write("Với số tiền gửi là " + money + ", lãi suất tiền gửi " + intRate + "%. Sau " + year + " năm, ta có tổng tiền tiết kiệm là: " + total);
+    }
+    //KIỂM TRA ĐIỀU KIỆN 3 CẠNH TAM GIAC
+    function triangle() {
+        let a, b, c;
+        a = parseFloat(prompt("Nhập vào số a: "));
+        b = parseFloat(prompt("Nhập vào số b: "));
+        c = parseFloat(prompt("Nhập vào số c: "));
+        if (a>0 && b>0 && c>0) {
+            if (a+b>c && b+c>a && a+c>b) {
+                document.write("Các số là giá trị ba cạnh tam giác");
+            }
+            else {
+                document.write("Các số KHÔNG phải là giá trị ba cạnh tam giác");
+            }
+        }
+        else {
+            document.write("Các số KHÔNG phải giá trị ba cạnh tam giác");
+        }
+    }
+    //THUẾ THU NHAP CA NHAN
+    function incomeTax () {
+        let salary, incometax, upincome;
+        salary = parseFloat(prompt("Nhập số tiền lương hằng tháng: "));
+        upincome = parseFloat(prompt("Nhập giảm trừ gia cảnh (nếu có), cá nhân là 11 triệu VND: "))
+
+        if (salary-upincome<=0) {
+            document.write("Mức lương " + salary + " triệu VND với giảm trừ gia cảnh " + upincome + " triệu VND không phải chịu thuế thu nhập cá nhân.");
+        }
+        else {
+            if (salary-upincome <= 5) {
+                incometax = (salary-upincome)*5/100;
+            }
+            else {
+                if (salary-upincome <= 10) {
+                    incometax = 5*5/100 + (salary-upincome-5)*10/100;
+                }
+                else {
+                    if (salary-upincome <=18) {
+                        incometax = 5*5/100 + (10-5)*10/100 + (salary-upincome-10)*15/100;
+                    }
+                    else {
+                        if (salary-upincome <=32) {
+                            incometax = 5*5/100 + (10-5)*10/100 + (18-10)*15/100 + (salary-upincome-18)*20/100;
+                        }
+                        else {
+                            if(salary-upincome <=52) {
+                                incometax = 5*5/100 + (10-5)*10/100 + (18-10)*15/100 + (32-18)*20/100 + (salary-upincome-32)*25/100;
+                            }
+                            else {
+                                if(salary-upincome <=80) {
+                                    incometax = 5*5/100 + (10-5)*10/100 + (18-10)*15/100 + (32-18)*20/100 + (53-32)*25/100 + (salary-upincome-52)*30/100;
+                                }
+                                else {
+                                    incometax = 5*5/100 + (10-5)*10/100 + (18-10)*15/100 + (32-18)*20/100 + (53-32)*25/100 + (80-52)*30/100 + (salary-upincome-80)*35/100;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            document.write("Mức lương: " + salary + " triệu VND phải chịu thuế thu nhập cá nhân. <br>Giảm từ gia cảnh là: " + upincome + " triệu VND <br>Số tiền phải nộp là: " + incometax + " triệu VND");
+        }
+    }
+</script>
+</html>
