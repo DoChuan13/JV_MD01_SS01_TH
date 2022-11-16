@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2</title>
+</head>
+<body>
+    <form action="#" method="get">
+        <label for="input">Nhập từ Tiếng Anh cần tìm kiếm: </label>
+        <input type="text" name="input" id="input_text">
+        <br>
+        <label for="result">Kết quả: </label>
+        <span id="result"></span><br>
+        <button type="button" onclick="dictionary()">Search</button>
+    </form>
+</body>
+<script>
+    function dictionary () {
+        let eng = ["Hello", "Goodbye", "Dog", "Cat", "Female", "Male"];
+        let vie = ["Xin chào", "Tạm biệt", "Con chó", "Con mèo", "Nữ", "Nam"];
+        let search = document.getElementById("input_text").value;
+        for (let i = 0; i<eng.length;i++) {
+            if(search==eng[i]) {
+                document.getElementById("result").innerHTML=vie[i];
+                break;
+            }
+            else {
+                document.getElementById("result").innerHTML="WORD NOT FOUND";   
+            }
+        }
+
+    }
+</script>
+</html>

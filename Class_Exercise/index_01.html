@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1</title>
+</head>
+<body>
+    <button type="button" onclick="myColor();">My Color</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="stringSplit();">Thêm ký tự vào chuỗi số</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="upper_lower_case();">UPPER LOWER CASE CONVERT</button>
+</body>
+<script>
+    // Bài tập 1.1 Nối items của mảng
+    function myColor () {
+        let myColor = ["Red", "Green", "White", "Black"];
+        console.log(myColor.toString);
+        console.log(myColor.join());
+        console.log(myColor.join('+'));
+        let text = "how are you do ing"
+        let newarray = text.split()
+    }
+
+    //Bài tập 1.2: Chuyển chuỗi thành mảng = split
+    function stringSplit () {
+        let number = prompt("Nhập vào một số bất kỳ");
+        let subarray = number.split("");    
+        let result ="";
+        console.log(subarray);
+        for (let i=0;i<subarray.length;i++) {
+            if (parseInt(subarray[i])%2 == 0 && parseInt(subarray[i+1])%2==0) {
+                result+=subarray[i]+"-";
+            }
+            else {
+                result+=subarray[i];
+            }
+        }
+        document.write("Số nhập vào là: " + number + "<br>");
+        document.write("Kết quả đầu ra là: " + result);
+    }
+    // Bài tập 1.3 UPPER CASE LOWER CASE
+    function upper_lower_case() {
+        let str = prompt("Nhập chuỗi ký tự: ");
+        let subarray = str.split("");
+        let result = "";
+        for (let i=0;i<subarray.length;i++) {
+            if(subarray[i].toUpperCase() === subarray[i]) {
+                result+= subarray[i].toLowerCase();
+            }
+            else {
+                result+=subarray[i].toUpperCase();
+            }
+        }
+        document.write("Số nhập vào là: " + str + "<br>");
+        document.write("Kết quả đầu ra là: " + result);
+    }
+</script>
+</html>
