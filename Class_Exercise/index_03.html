@@ -32,28 +32,33 @@
     function changeValue(x) {
         let positionX = prompt("X: ");
         let positionY = prompt("Y: ");
-        if (x == 1) {
-            data = ""; board[positionX][positionY] = "x";
-            x++
+        if (board[positionX][positionY] === "x" || board[positionX][positionY] === "o") {
+            alert("Ô này người chơi trước đã đánh rồi");
         }
         else {
-            data = ""; board[positionX][positionY] = "o";
-            x = 1;
-        }
-        for (let i = 0; i < 5; i++) {
-            data += "<br/>";
-            for (let j = 0; j < 5; j++) {
-                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            if (x == 1) {
+                data = ""; board[positionX][positionY] = "x";
+                x++
             }
+            else {
+                data = ""; board[positionX][positionY] = "o";
+                x = 1;
+            }
+            for (let i = 0; i < 5; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 5; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            data += "<br/><br/><input type='button' value='Player " + x + "' onclick='changeValue(" + x + ")'>"
+            b.innerHTML = data;
         }
-        data += "<br/><br/><input type='button' value='Player " + x + "' onclick='changeValue(" + x + ")'>"
-        b.innerHTML = data;
 
         for (let i = 0; i < 5; i++) {
             for (let j = 0; j < 5; j++) {
                 if ((board[i][j] === board[i + 1][j] && board[i + 1][j] === board[i + 2][j])
                     || (board[i][j] === board[i + 1][j + 1] && board[i + 1][j + 1] === board[i + 2][j + 2])
-                    || (board[i][j] === board[i][j + 1] && board[i][j+1] === board[i][j + 2])) {
+                    || (board[i][j] === board[i][j + 1] && board[i][j + 1] === board[i][j + 2])) {
                     if (board[i][j] === "x") {
                         alert("Người chơi 1 đã chiến thắng.");
                     }
