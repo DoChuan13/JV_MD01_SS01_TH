@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function isPrime(number) {
+        for (let i = 2; i <= number; i++) {
+            if (number == 2) {
+                return true;
+                break
+            }
+            if (number % i == 0 && i < number - 1) {
+                return false;
+                break;
+            }
+            else if (i == (number - 1)) {
+                return true;
+            }
+        }
+    }
+
+    function findTotalPrime() {
+        for (let j = 2; j < 10000; j++) {
+            let check = isPrime(j);
+            if (check == true) {
+                document.write(j + ", ");
+            }
+        }
+    }
+
+    document.write("Danh sách số nguyên tố là: ");
+    findTotalPrime();
+</script>
+
+</html>
