@@ -60,7 +60,7 @@
     </div>
     <div>
         <h2>Display All Product</h2>
-        <sp id="all_product_table">
+        <span id="all_product_table"></span>
     </div>
     </div>
 </body>
@@ -87,9 +87,14 @@
     //Add New Product
     function addNewProduct() {
         let addvalue = document.getElementById("addNewProduct").value;
-        productArr.push(addvalue);
-        drawTable();
-        row++;
+        if (addvalue == null || addvalue == '') {
+            alert("Please input value in textbox!!!");
+        }
+        else {
+            productArr.push(addvalue);
+            drawTable();
+            row++;
+        }
     }
 
 
