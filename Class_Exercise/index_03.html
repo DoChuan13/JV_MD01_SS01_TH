@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3</title>
+</head>
+
+<body>
+    <button type="button" onclick="alertMessage();">Bài 1: Xin chào</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="inputIncreaseNumber();">Bài 2: Tăng giá trị nhập vào</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="inputCompareNumbers();">Bài 3: So sánh/Tính tổng hai tham số</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="findStarInConstellation();">Bài 5: Tìm kiếm chòm sao</button>
+    <br><br><br>
+    <hr>
+</body>
+<script>
+    // Bài 3.1: Tạo hàm alertMessage() hiển thị hộp thoại chứa chuỗi "Xin chao".Gọi hàm từ trong phần < body > của trang web.
+    function alertMessage() {
+        alert("Xin chào");
+    }
+
+    /*Bài 3.2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm. 
+    Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình.*/
+    function inputIncreaseNumber() {
+        let number = parseFloat(prompt("Nhập vào một giá trị: "));
+        increaseNumber(number);
+    }
+    function increaseNumber(number) {
+        number++;
+        return document.write("Số sau khi tăng thêm một đơn vị là: " + number);
+    }
+
+    /*Bài 3.3: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm.
+    Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình.*/
+    // function
+    function inputCompareNumbers() {
+        let a = parseFloat(prompt("Nhập vào số a: "));
+        let b = parseFloat(prompt("Nhập vào số b: "));
+        compareNumbers(a, b);
+    }
+    function compareNumbers(a, b) {
+        if (a > b) {
+            alert("Số " + a + " lớn hơn số " + b);
+        }
+        else {
+            document.write(`Tổng của hai số nhập vào là: ${a + b}`);
+        }
+    }
+
+    /*Bài 3.4: Thêm các hàm alert() vào những vị trí thích hợp trong đoạn mã sau
+    để bạn có thể nhìn thấy giá trị của biến result trước và sau lời gọi hàm. Đoạn mã có dạng như sau:*/
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+    }
+    result = 0;
+    // alert("Giá trị trước khi gọi hàm là: " + result);
+    result = addNumbers();
+    // alert("Giá trị sau khi gọi hàm là: " + result);
+
+    /*Bài 3.5: Tạo một mảng với bảy phần tử dạng chuỗi có giá trị là tên các ngôi sao sau: 
+    Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe và Regulus. 
+    Tạo một mảng khác với bảy phần tử dạng chuỗi có giá trị là tên các chòm sao tương ứng chứa các ngôi sao: 
+    Ursa Minor, Tarurus, Cygnus, Lyra, Aquila, Ursa Major và Leo.
+
+    Tiếp theo, tạo một hàm nhận vào một tham số dạng chuỗi duy nhất. Trong hàm này, duyệt qua mảng thứ nhất để tìm tên ngôi sao. 
+    Nếu tìm thấy, trả lại giá trị tương ứng với chỉ số đó ở mảng thứ hai. Nói cách khác, trả lại tên chòm sao của ngôi sao đó.*/
+    function findStarInConstellation() {
+        let star = prompt("Nhập vào tên ngôi sao");
+        findConstellation(star);
+    }
+    function findConstellation(star) {
+        let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        for (let i = 0; i < stars.length; i++) {
+            if (star == stars[i]) {
+                document.write("Ngôi sao <b>" + stars[i] + "</b> nằm trong chòm sao <b>" + constellation[i] + "</b>");
+                break;
+            }
+            else if (i == stars.length - 1) {
+                document.write("Không tìm thấy kết quả nào trùng khớp.");
+            }
+        }
+    }
+</script>
+
+</html>

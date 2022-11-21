@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 02</title>
+</head>
+
+<body>
+</body>
+<script>
+    function footToMeter(foot) {
+        let meter = 0.305 * foot;
+        return meter;
+    }
+    function meterToFoot(meter) {
+        let foot = 3.279 * meter;
+        return foot;
+    }
+    let feet = parseFloat(prompt("Nhập vào giá trị feet: "));
+    let a = footToMeter(feet);
+    document.write(feet + " feet tương đương với " + a + " mét<br>");
+    let meter = parseFloat(prompt("Nhập vào giá trị meter: "));
+    let b = meterToFoot(meter);
+    document.write(meter + " mét tương đương với " + b + " feet");
+</script>
+
+</html>

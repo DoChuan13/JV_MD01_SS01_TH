@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4</title>
+</head>
+
+<body>
+    <button type="button" onclick="caculatePowerClick();">Bài 1 Tính bình phương</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="caculateCicleClick();">Bài 2 Tính chu vi/diện tích hình tròn</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="caculateFactorialClick();">Bài 3 Tính giai thừa</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="isNumberClick();">Bài 4 Check ký tự số học?</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="minValueClick();">Bài 5 Tìm giá trị nhỏ nhất</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="checkNatualNumberClick();">Bài 6 Kiểm tra số nguyên âm/dương</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="swapClick();">Bài 7 Đổi vị trí hai số</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="reverseArr();">Bài 8 Đảo ngược mảng</button>
+    <br><br><br>
+    <hr>
+    <button type="button" onclick="findItemInArr();">Bài 9 Tìm ký tự trong mảng</button>
+    <br><br><br>
+    <hr>
+</body>
+<script>
+    /*Bài 4.1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.*/
+    function caculatePowerClick() {
+        let number = parseFloat(prompt("Nhập vào một số bất kỳ: "))
+        caculatePower(number);
+    }
+    function caculatePower(number) {
+        document.write(`Giá trị bình phương của ${number} là ${number ** 2}`);
+    }
+
+    /*Bài 4.2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được.*/
+    function caculateCicleClick() {
+        let radius = parseFloat(prompt("Nhập giá trị bán kính: "));
+        caculateCicle(radius);
+    }
+    function caculateCicle(radius) {
+        let area, perimeter;
+        area = Math.PI * (radius ** 2);
+        perimeter = 2 * Math.PI * radius;
+        document.write("Diện tích hình tròn là: " + area + "mm<sup>2</sup><br>");
+        document.write("Chu vi hình tròn là: " + perimeter + "mm")
+    }
+
+    /*Bài 4.3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.*/
+    function caculateFactorialClick() {
+        let number = parseInt(prompt("Nhập vào một số nguyên: "));
+        caculateFactorial(number);
+    }
+    function caculateFactorial(number) {
+        let factorial = 1;
+        for (let i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+        document.write("Giai thừa của " + number + " là: " + factorial);
+    }
+
+    /*Bài 4.4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại trả về false.*/
+    function isNumberClick() {
+        let value = prompt("Nhập vào một ký tự bất kỳ: ");
+        isNumber(value);
+    }
+
+    function isNumber(value) {
+        if (isNaN(value) != true) {
+            document.write("Ký tự nhập vào là ký tự số học.");
+        }
+        else {
+            document.write("Ký tự nhập vào KHÔNG phải là ký tự số học.");
+        }
+    }
+
+    /*Bài 4.5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.*/
+    function minValueClick() {
+        let a, b, c;
+        a = parseFloat(prompt("Nhập vào giá trị a: "));
+        b = parseFloat(prompt("Nhập vào giá trị b: "));
+        c = parseFloat(prompt("Nhập vào giá trị c: "));
+        minValue(a, b, c);
+    }
+
+    function minValue(a, b, c) {
+        if (a < b && a < c) {
+            document.write(a + " là giá trị nhỏ nhất.");
+        }
+        else if (b < c) {
+            document.write(b + " là giá trị nhỏ nhất.");
+        }
+        else {
+            document.write(c + " là giá trị nhỏ nhất.");
+        }
+    }
+
+    /*Bài 4.6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên
+    dương không. Nếu là nguyên dương trả về true, ngược lại trả về false.*/
+    function checkNatualNumberClick() {
+        let number;
+        do {
+            number = parseInt(prompt("Nhập vào một số nguyên"))
+        } while (isNaN(number) == true);
+        checkNatualNumber(number);
+    }
+
+    function checkNatualNumber(number) {
+        if (number > 0) {
+            document.write("Đây là số nguyên Dương.");
+        }
+        else {
+            document.write("Đây là số nguyên Âm.");
+        }
+    }
+
+    /*Bài 4.7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.*/
+    let swapArr = [];
+    function swapClick() {
+        swapArr[0] = prompt("Nhập vào số thứ 1");
+        swapArr[1] = prompt("Nhập vào số thứ 2");
+        document.write("Dãy số trước khi nhập vào là: " + swapArr + "<br>");
+        swap();
+        document.write("Dãy số sau khi nhập vào là: " + swapArr + "<br>");
+    }
+    function swap() {
+        let temp = swapArr[0];
+        swapArr[0] = swapArr[1];
+        swapArr[1] = temp;
+    }
+
+    /*Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.*/
+    function reverseArr() {
+        let array = [];
+        let range = parseInt(prompt("Nhập vào kích thước mảng: "));
+        for (let i = 0; i < range; i++) {
+            array[i] = prompt("Nhập vào phần tử thứ " + i + " trong mảng:");
+        }
+        document.write("Mảng trước khi đảo ngược là: " + array);
+        array.reverse();
+        document.write("<br>Mảng sau khi đảo ngược là: " + array);
+    }
+
+    /*Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+    Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.*/
+    function findItemInArr() {
+        let array = [];
+        let range = parseInt(prompt("Nhập vào kích thước mảng: "));
+        for (let i = 0; i < range; i++) {
+            array[i] = prompt("Nhập vào phần tử thứ " + i + " trong mảng:");
+        }
+        let item = prompt("Nhập vào giá trị cần tìm trong mảng: ")
+        document.write("Mảng nhập vào là là: " + array + "<br>");
+        for (let i = 0; i < range; i++) {
+            if (item == array[i]) {
+                document.write("Ký tự " + item + " có tại vị trí thứ " + i + " trong mảng");
+                break;
+            }
+            else if (i == range - 1) {
+                document.write("Ký tự " + item + " không tồn tại trong mảng");
+            }
+        }
+    }
+</script>
+
+</html>
