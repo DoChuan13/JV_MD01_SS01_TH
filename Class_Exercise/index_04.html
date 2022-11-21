@@ -159,6 +159,7 @@
     Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.*/
     function findItemInArr() {
         let array = [];
+        let count = 0;
         let range = parseInt(prompt("Nhập vào kích thước mảng: "));
         for (let i = 0; i < range; i++) {
             array[i] = prompt("Nhập vào phần tử thứ " + i + " trong mảng:");
@@ -167,12 +168,14 @@
         document.write("Mảng nhập vào là là: " + array + "<br>");
         for (let i = 0; i < range; i++) {
             if (item == array[i]) {
-                document.write("Ký tự " + item + " có tại vị trí thứ " + i + " trong mảng");
-                break;
+                count++;
             }
-            else if (i == range - 1) {
-                document.write("Ký tự " + item + " không tồn tại trong mảng");
-            }
+        }
+        if (count != 0) {
+            document.write("Ký tự " + item + " xuất hiện " + count + " lần");
+        }
+        else {
+            document.write(-1);
         }
     }
 </script>
