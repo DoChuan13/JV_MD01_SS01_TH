@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 6</title>
+</head>
+
+<body>
+    <button type="button" onclick="isPalindrome();">Click to Start!</button>
+</body>
+<script>
+    function isPalindrome() {
+        let str = prompt("Nhập vào chuỗi kiểm tra: ");
+        // let strArr = str.split('');
+        document.write("Chuỗi nhập vào là: " + str + "<br>");
+        for (let i = 0, j = str.length - 1; i < str.length / 2; i++, j--) {
+            if (str.charCodeAt(i) != str.charCodeAt(j)) {
+                document.write("Đây KHÔNG phải là chuỗi đối xứng");
+                break;
+            }
+            else if (i == parseInt(str.length / 2) - 1) {
+                document.write("Đây là chuỗi đối xứng");
+            }
+        }
+    }
+
+</script>
+
+</html>
