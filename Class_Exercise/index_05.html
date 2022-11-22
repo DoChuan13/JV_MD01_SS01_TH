@@ -49,6 +49,10 @@
         border-radius: 5px;
         width: 200px;
     }
+
+    tr:nth-child(even) {
+        background-color: rgb(231, 235, 235);
+    }
 </style>
 
 <body onload="drawTable()">
@@ -108,11 +112,12 @@
 
     //Edit Product
     function editProduct(row) {
-        productArr[row] = prompt("Input change infomation for this product.");
-        if (productArr[row] == null || productArr[row] == "") {
+        let input = prompt("Input change infomation for this product.");
+        if (input == null || input == '') {
             alert("Content must not be empty");
         }
         else {
+            productArr[row] = input;
             drawTable();
         }
     }
