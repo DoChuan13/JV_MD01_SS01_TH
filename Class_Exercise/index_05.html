@@ -27,9 +27,12 @@
         text-align: center;
     }
 
-    .first_column {
-        text-align: left;
-        color: red;
+    .header_table {
+        text-align: center;
+        color: white;
+        background-color: blueviolet;
+        font-size: 20px;
+        line-height: 30px;
     }
 
 
@@ -76,9 +79,10 @@
     //Draw Table
     function drawTable() {
         let table_data = '';
-        table_data += '<table>' + '<tr><th class="first_column">' + 'Product Name' + '</th>' + '<th colspan="2">' + (productArr.length) + ' products' + '</th></tr>';
+        table_data += '<table>' + '<tr class="header_table">' + '<th>' + 'STT' + '<th>' + 'Product Name' + '</th>' + '<th colspan="2">' + (productArr.length) + ' products' + '</th>' + '</tr>';
         for (let i = 0; i < productArr.length; i++) {
             table_data += '<tr>';
+            table_data += `<td>${i + 1}</td>`;
             table_data += '<td>' + productArr[i] + '</td>';
             table_data += '<td>' + '<button type="button" onclick="editProduct(' + i + ')">Edit</button>' + '</td>';
             table_data += '<td>' + '<button type="button" onclick="removeProduct(' + i + ')">Remove</button>' + '</td>';
@@ -97,7 +101,7 @@
         else {
             productArr.push(addvalue);
             drawTable();
-            row++;
+            document.getElementById("addNewProduct").value = '';
         }
     }
 
