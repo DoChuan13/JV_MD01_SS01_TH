@@ -22,17 +22,19 @@
     let x = 10;
     let y = 10;
     let cv = document.getElementById("tank_game");
-    let context = cv.getContext("2d");
+    let ctx = cv.getContext("2d");
     let tank = new Image();
     tank.src = "assets/images/tank.png";
     tank.onload = function () {
-        context.drawImage(this, 120, 50, 40, 40);
+        ctx.drawImage(this, 120, 50, 40, 40);
     }
+    // ctx.drawImage(tank, 10, 50, 40, 40);
+    // console.log(tank);
 
     let boom = new Image();
     boom.src = "assets/images/boom.png";
     boom.onload = function () {
-        context.drawImage(this, 0, 0, 40, 40);
+        ctx.drawImage(this, 0, 0, 40, 40);
     }
 
     //Move function
