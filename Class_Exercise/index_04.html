@@ -7,38 +7,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài tập 4</title>
 </head>
+<style>
+    canvas {
+        border: 1px solid black;
+        width: 1200px;
+        /* height: 600px; */
+    }
+</style>
 
 <body>
-
+    <canvas id="tank_game"></canvas>
 </body>
 <script>
-    // let machine = {}
-    // let computer = {}
-    // computer.isOn = false;
-    // console.log(computer.isOn);
-    // function turnOn(compter) {
-    //     machine.isOn = true;
-    // }
-    // console.log(computer.isOn);
-    // function turnOn(machine) {
-    //     machine.isOn = true;
-    // }
-    // let computer = {
-    //     isOn: false
-    // };
-    // turnOn(computer);
-    // console.log(computer.isOn); // true;\
-
-
-    let nokia = {};
-    nokia.received = "";
-    console.log(nokia.received);
-    function sendMess(iphone) {
-        iphone.draft_mess = "Tôi yêu VN";
-
+    let x = 10;
+    let y = 10;
+    let cv = document.getElementById("tank_game");
+    let context = cv.getContext("2d");
+    let tank = new Image();
+    tank.src = "assets/images/tank.png";
+    tank.onload = function () {
+        context.drawImage(this, 120, 50, 40, 40);
     }
-    sendMess(nokia)
-    console.log(nokia.received);
+
+    let boom = new Image();
+    boom.src = "assets/images/boom.png";
+    boom.onload = function () {
+        context.drawImage(this, 0, 0, 40, 40);
+    }
+
+    //Move function
+    // function upArrowPressed() {
+    //     tank.style.top = parseInt(element.style.top) - 5 + 'px';
+    // }
+
+    // function downArrowPressed() {
+    //     var element = document.getElementById("nobita");
+    //     element.style.top = parseInt(element.style.top) + 5 + 'px';
+    // }
+    // function leftArrowPressed() {
+    //     var element = document.getElementById("nobita");
+    //     element.style.left = parseInt(element.style.left) - 5 + 'px';
+    // }
+    // function rightArrowPressed() {
+    //     var element = document.getElementById("nobita");
+    //     element.style.left = parseInt(element.style.left) + 5 + 'px';
+    // }
+    // function moveSelection(evt) {
+    //     switch (evt.keyCode) {
+    //         case 37: leftArrowPressed(); break;
+    //         case 39: rightArrowPressed(); break;
+    //         case 38: upArrowPressed(); break;
+    //         case 40: downArrowPressed(); break;
+    //     }
+    // }
+
+
 </script>
 
 </html>
