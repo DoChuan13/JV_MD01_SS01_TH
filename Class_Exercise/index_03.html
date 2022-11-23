@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3</title>
+</head>
+<style>
+    * {
+        margin: 0 auto;
+        font-size: large;
+    }
+
+    #container {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    #nokia {
+        border: 5px solid rebeccapurple;
+        width: 500px;
+        height: 600px;
+    }
+
+    #iphone {
+        border: 5px solid blue;
+        width: 500px;
+        height: 600px;
+    }
+
+    #mailbox {
+        min-height: 250px;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="nokia">
+            <h1>Nokia</h1>
+            <h3>Battery Info: <span id="nokia_battery">0</span>%</h3>
+            <br><br>
+            <hr>
+            <label for="draft">Draft</label>
+            <input type="text" name="" id="nokia_draft">
+            <button type="button" onclick="sent_Phone(nokia,iphone)">Send</button>
+            <div id="mailbox">
+                <h2>Sent Messages</h2>
+                <span id="nokia_sent"></span>
+            </div>
+            <div id="mailbox">
+                <h2>Received Messages</h2>
+                <span id="nokia_received"></span>
+            </div>
+        </div>
+        <div id="iphone">
+            <h1>Iphone</h1>
+            <h3>Battery Info: <span id="iphone_battery">0</span>%</h3>
+            <br><br>
+            <hr>
+            <label for="draft">Draft</label>
+            <input type="text" name="" id="iphone_draft">
+            <button type="button" onclick="sent_Phone(iphone,nokia)">Send</button>
+            <div id="mailbox">
+                <h2>Sent Messages</h2>
+                <span id="iphone_sent"></span>
+            </div>
+            <div id="mailbox">
+                <h2>Received Messages</h2>
+                <span id="iphone_received"></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let sent_transfer = '';
+    function Mobile(brandname, battery, draf_mess, received_mess, sent_mess, status) {
+        this.brandname = brandname;
+        this.battery = battery;
+        this.draft_mess = draf_mess;
+        this.received_mess = received_mess;
+        this.sent_mess = sent_mess;
+        this.status = status;
+        //Check Phone
+        this.check_phone = function () {
+            if (this.status == true) {
+                console.log("Điện thoại đang được bật")
+            }
+            else {
+                console.log("Điện thoại đang tắt")
+            }
+        }
+        //Turn On Off Phone
+        this.turnOnOffMobile = function () {
+            if (this.status == true) {
+                this.status = false;
+                console.log("Điện thoại đã được tắt");
+            }
+            else {
+                this.status = true;
+                console.log("Điện thoại đã được bật");
+            }
+        }
+        //Charge Mobile
+        this.chargeMobile = function () {
+            while (this.battery < 100) {
+                console.log("Điện thoại đang được sạc, mức pin hiện tại là: " + this.battery);
+                this.battery += 1;
+            }
+            console.log("Điện thoại đầy pin, vui lòng rút sạc");
+        }
+
+        this.draft = function () {
+            return this.draft_mess = prompt("Vui lòng viết nội dung soạn thảo vào đây;")
+        }
+        //Send Message
+        this.sendMess = function () {
+            if (this.draft_mess == '' || this.draft_mess == null) {
+                alert("Không có nội dung tin nhắn nào đang soạn thảo");
+                // if (confirm("Bạn có muốn soạn thảo tin nhắn mới không?")) {
+                //     this.draft();
+                //     this.sendMess();
+                // }
+            }
+            else {
+                console.log("Tin nhắn đã được gửi đi, nội dung tin nhắn gửi đi là: " + this.draft_mess + "");
+                sent_transfer = this.draft_mess;
+                this.sent_mess.push(this.draft_mess);
+                this.draft_mess = '';
+                this.battery -= 1;
+            }
+        }
+        // receive Message
+        this.receiveMess = function () {
+            if (sent_transfer != null && sent_transfer != '') {
+                this.received_mess.push(sent_transfer);
+                this.battery -= 1;
+            }
+        }
+    }
+
+
+    //Create Object
+    let nokia = new Mobile("nokia", 80, "", [], [], false,);
+    let iphone = new Mobile("iphone", 80, '', [], [], false);
+
+    //Send Mess Button
+    function sent_Phone(from, to) {
+        let draftvalue = document.getElementById(from.brandname + "_draft").value;
+        let batteryfrom = from.battery;
+        if (batteryfrom == 0) {
+            alert("Điện thoại hết pin, vui lòng sạc lại trước khi tiếp tục sử dụng");
+        }
+        else if (draftvalue == '' || draftvalue == null) {
+            alert("Không có nội dung tin nhắn nào đang soạn thảo");
+        }
+        else {
+            from.draft_mess = draftvalue;
+            from.sendMess()
+            console.log(nokia);
+            to.receiveMess();
+            console.log(iphone);
+            document.getElementById(from.brandname + "_draft").value = ''
+            document.getElementById(from.brandname + "_battery").innerHTML = from.battery;
+            document.getElementById(to.brandname + "_battery").innerHTML = to.battery;
+            document.getElementById(from.brandname + "_sent").innerHTML = from.sent_mess.join(" ;<br>");
+            document.getElementById(to.brandname + "_received").innerHTML = to.received_mess.join(" ;<br>");
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1</title>
+</head>
+
+<body>
+    <canvas id="rectangle_org" width="500" height="300" style="border: 1px solid black"></canvas>
+    <canvas id="rectangle_new" width="500" height="300" style="border: 1px solid black"></canvas>
+</body>
+<script>
+    //C1::: Create Class
+    function Rectangle_Class(width, height) {
+        //THUỘC TÍNH
+        this.width = width;
+        this.height = height;
+        //HÀNH VI
+        this.getArea = function () {
+            return this.width * this.height;
+        }
+        this.getPerimeter = function () {
+            return 2 * (this.width + this.height);
+        }
+    }
+    let Rectangle1 = new Rectangle_Class(200, 30);
+    document.write("<br>Kích thước hình chữ nhật ban đầu là: " + Rectangle1.width + " và " + Rectangle1.height);
+    document.write("<br>Diện tích hình chữ nhật là: " + Rectangle1.getArea());
+    document.write("<br>Chu vi hình chữ nhật là: " + Rectangle1.getPerimeter());
+
+    //Draw Rectangle Origin
+    drawRectangle(Rectangle1.width, Rectangle1.height, "org")
+
+
+    Rectangle1.width = 400;
+    Rectangle1.height = 200;
+    document.write("<br>Kích thước hình chữ nhật thay đổi là: " + Rectangle1.width + " và " + Rectangle1.height);
+    document.write("<br>Diện tích hình chữ nhật là: " + Rectangle1.getArea());
+    document.write("<br>Chu vi hình chữ nhật là: " + Rectangle1.getPerimeter());
+    //Draw Rectangle Origin
+    drawRectangle(Rectangle1.width, Rectangle1.height, "new")
+
+
+    //Draw Rectangle
+    function drawRectangle(width, height, loc) {
+        let id = "rectangle_" + loc;
+        let ctr = document.getElementById(id);
+        let ctx_rectangle = ctr.getContext("2d");
+        ctx_rectangle.beginPath();
+        ctx_rectangle.fillStyle = "red";
+        ctx_rectangle.fillRect(10, 10, width, height);
+        ctx_rectangle.fill();
+    }
+
+
+
+    //C2::: Create Object
+    // let rectangle = {
+    //     width: 200,
+    //     height: 100,
+    //     getArea: function () { return this.width * this.height },
+    //     getPerimeter: function () { return 2 * (this.width * this.height) },
+    // }
+    // console.log(rectangle.getArea());
+    // console.log(rectangle.getPerimeter());
+
+    // rectangle.width = 300;
+    // rectangle.height = 500;
+
+    // console.log(rectangle.getArea());
+    // console.log(rectangle.getPerimeter()); 
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Temperature(temp) {
+        this.temp = temp;
+        this.convertCtoF = function () {
+            document.write(this.temp + "&deg C tương đương với " + (this.temp * 9 / 5 + 32) + "&deg F<br>")
+        };
+        this.convertCtoK = function () {
+            document.write(this.temp + "&deg C tương đương với " + (this.temp + 273.15) + "&deg K<br>")
+        };
+    }
+    let temperature = new Temperature(25);
+    temperature.convertCtoF();
+    temperature.convertCtoK();
+
+</script>
+
+</html>
