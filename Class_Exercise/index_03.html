@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //SWITCH BUTTON
+    function SwitchButton(status, lamp) {
+        this.status = status;
+        this.lamp = lamp;
+        this.connectToLamp = function (electriclamp) {
+            if ((electriclamp.status == this.status) && (this.status == false)) {
+                console.log("Đèn được kết nối với công tắc");
+                this.lamp = true;
+            }
+            else {
+                console.log("Cần ngắt kết nối với nguồn điện trước khi đấu nối")
+                this.lamp = false;
+            }
+        }
+        this.switchOff = function (electriclamp) {
+            if (this.lamp == true) {
+                console.log("Đèn đã bị tắt");
+                electriclamp.status = false;
+                return this.status = false;
+            }
+            else {
+                console.log("Công tắc chưa đấu nối với đèn. Yêu cầu kết nối trước khi có thể điều khiển được")
+            }
+        }
+        this.switchOn = function (electriclamp) {
+            if (this.lamp == true) {
+                console.log("Đèn đã được bật");
+                electriclamp.status = true;
+                return this.status = true;
+            }
+            else {
+                console.log("Công tắc chưa đấu nối với đèn. Yêu cầu kết nối trước khi có thể điều khiển được")
+            }
+        }
+    }
+
+    //ELECTRICT LAMP
+    function ElectricLamp(status) {
+        this.status = status;
+        this.turnOff = function () {
+            this.status = false;
+            console.log("Đèn đã chuyển sang tắt");
+        }
+        this.turnOn = function () {
+            this.status = true;
+            console.log("Đèn đã chuyển sang bật");
+        }
+        this.statusLamp = function () {
+            if (this.status == true) {
+                console.log("Đèn đã chuyển sang bật");
+            }
+            else {
+                console.log("Đèn đã chuyển sang tắt");
+            }
+        }
+    }
+
+
+    let button = new SwitchButton(true);
+    let lamp = new ElectricLamp(false);
+    // lamp.turnOff();
+    button.switchOn(lamp);
+    button.switchOff(lamp);
+    button.connectToLamp(lamp);
+    button.status = false;
+    button.connectToLamp(lamp);
+    console.log("BẮT ĐẦU VÒNG LẶP BẬT TẮT ĐÈN");
+    for (let i = 0; i < 10; i++) {
+        button.switchOn(lamp);
+        lamp.statusLamp();
+        button.switchOff(lamp);
+        lamp.statusLamp();
+    }
+</script>
+
+</html>
