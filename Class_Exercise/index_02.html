@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Set prototype for Apple
+    function Apple(weight) {
+        this.weight = weight;
+        this.decrease = function () {
+            this.weight--;
+        }
+        this.isEmpty = function () {
+            if (this.getWeight() > 0) {
+                // console.log("Táo vẫn còn!!!");
+                return false;
+            }
+            else {
+                // console.log("Táo hết rồi!!!");
+                return true;
+            }
+        }
+        this.getWeight = function () {
+            // console.log("Khối lượng của táo là: " + this.weight);
+            return this.weight;
+        }
+    }
+
+    // Set prototype for Human
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+
+        this.isMale = function () {
+            if (this.gender == "Male") {
+                console.log("Tôi là nam");
+                return true;
+            }
+            else {
+                console.log("Tôi là nữ");
+                return false;
+            }
+        }
+        this.setGender = function (gender) {
+            this.gender = gender;
+        }
+        this.checkApple = function (target) {
+            if (target.isEmpty() == false) {
+                // console.log("Táo vẫn còn");
+                return true;
+            }
+            else {
+                // console.log("Táo hết rồi, vặt táo mới đi");
+                return false;
+            }
+        }
+        this.eat = function (target) {
+            if (this.checkApple(target) == true) {
+                target.decrease();
+                this.weight++;
+                console.log(this.name + " vừa ăn một miếng táo");
+            }
+            else {
+                console.log("Táo hết rồi, vặt táo mới đi");
+            }
+        }
+        this.say = function (say) {
+            console.log(say);
+        }
+
+        this.getName = function () {
+            console.log("Tên hiện tại là: " + this.name);
+            return this.name;
+        }
+        this.setName = function (name) {
+            this.name = name;
+            console.log(("Tên được đặt thành: " + this.name));
+        }
+        this.getWeight = function () {
+            console.log("Cân nặng hiện tại của " + this.name + " là: " + this.weight);
+            return this.weight;
+        }
+        this.setWeight = function (weight) {
+            this.weight = weight;
+            console.log("Cân nặng của " + this.name + " được đặt thành: " + this.weight);
+        }
+
+    }
+    let apple = new Apple(10);
+    let adam = new Human('Adam', 'Male', 70);
+    let eva = new Human('AdamEva', 'Female', 50);
+    // console.log(apple);
+    // console.log(adam);
+    // console.log(eva);
+
+
+    // apple.isEmpty();
+
+    adam.getName();
+    adam.isMale();
+    adam.getWeight();
+    adam.setWeight(60);
+    adam.say("Lời chào từ khởi thủy NGƯỜI NAM trước khi bắt đầu vòng lặp");
+    eva.getName();
+    eva.setName("Eva")
+    eva.isMale();
+    eva.getWeight();
+    eva.say("Lời chào từ khởi thủy NGƯỜI NỮ trước khi bắt đầu vòng lặp");
+    console.log("Khối lượng ban đầu của táo là: " + apple.getWeight());
+    console.log("BẮT ĐẦU QUÁ TRÌNH CHÉN TÁO: ...5...4...3...2...1... START")
+    for (let i = 0; i < 6; i++) {
+        if (apple.getWeight() != 0) {
+            adam.eat(apple);
+            adam.getWeight();
+            console.log("Khối lượng còn lại của táo là: " + apple.getWeight());
+            eva.eat(apple);
+            eva.getWeight();
+            console.log("Khối lượng còn lại của táo là: " + apple.getWeight());
+        }
+        else {
+            console.log("Hết táo rồi, vặt táo mới đi");
+            break;
+        }
+    }
+
+    adam.say("Lời chào sau cùng từ " + adam.name + " : Goodbye/再見/さよなら");
+    adam.say("Lời chào sau cùng từ " + eva.name + " : Goodbye/再見/さよなら");
+// </script>
+
+</html>
