@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 5</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Rat(name, weight, speed, alive) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.alive = alive;
+        this.scream = function () {
+            if (this.alive == true) {
+                console.log(this.name + " kêu: Chít... chít... chít...");
+            }
+            else {
+                console.log(this.name + " chết rồi");
+            }
+        }
+    }
+    function Cat(name, weight, speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.scream = function () {
+            console.log(this.name + " kêu: Meo... meo... meo...")
+        }
+        this.catchRat = function (rat) {
+            if (rat.speed < this.speed) {
+                console.log("Chuột " + rat.name + " đã bị mèo " + this.name + " tóm được");
+                return true;
+            }
+            else {
+                console.log("Chuột " + rat.name + " chạy quá nhanh, không thể bắt được");
+                return false;;
+            }
+        }
+        this.eatRat = function (rat) {
+            if (rat.alive == true) {
+                if (this.catchRat(rat) == true) {
+                    this.weight += rat.weight;
+                    console.log("Chuột " + rat.name + " đã bị mèo " + this.name + " xơi tái");
+                    console.log("Mèo " + this.name + " đã tăng trọng lượng lên " + this.weight);
+                }
+            }
+            else {
+                console.log("Chuột " + rat.name + " đã chết");
+            }
+        }
+    }
+
+    let tom = new Cat('Tom', 300, 200,);
+    let muscles = new Rat('Muscles', 500, 300, true);
+    let jerry = new Rat('Jerry', 150, 180, true);
+    let nibbles = new Rat('Nibbles', 100, 150, false);
+
+    tom.scream();
+    muscles.scream();
+    jerry.scream();
+    nibbles.scream();
+
+    tom.catchRat(muscles);
+    tom.catchRat(jerry);
+    tom.catchRat(nibbles);
+
+    tom.eatRat(muscles);
+    tom.eatRat(jerry);
+    tom.eatRat(nibbles);
+
+</script>
+
+</html>

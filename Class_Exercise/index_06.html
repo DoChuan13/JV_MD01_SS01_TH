@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 6</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Remote(channel) {
+        this.channel = channel;
+        this.turnOnTV = function (tivi) {
+            tivi.status = true;
+            console.log("Tivi đã được bật thông qua Remote");
+        }
+        this.turnOffTV = function (tivi) {
+            tivi.status = false;
+            console.log("Tivi đã được tắt thông qua Remote");
+        }
+        this.switchChannel = function (tivi, channel) {
+            if (tivi.status == true) {
+                tivi.channel = channel;
+                console.log("Tivi đã được chuyển qua kênh " + tivi.channel + " thông qua Remote");
+            }
+            else {
+                console.log("Tivi chưa được bật. Vui lòng bật Tivi trước khi sử dụng.");
+            }
+        }
+        this.increaseVolume = function (tivi) {
+            if (tivi.status == true) {
+                tivi.volume++;
+                console.log("Âm lượng được tăng lên mức " + tivi.volume + " thông qua Remote");
+            }
+            else {
+                console.log("Tivi chưa được bật. Vui lòng bật Tivi trước khi sử dụng.");
+            }
+        }
+        this.decreaseVolume = function (tivi) {
+            if (tivi.status == true && tivi.volume != 0) {
+                tivi.volume--;
+                this.volume = tivi.volume;
+                console.log("Âm lượng được giảm xuống mức " + tivi.volume + " thông qua Remote");
+            }
+            else if (tivi.status == true) {
+                console.log("Tivi đang ở chế độ MUTE")
+            }
+            else {
+                console.log("Tivi chưa được bật. Vui lòng bật Tivi trước khi sử dụng.");
+            }
+        }
+    }
+
+    function Tivi(channel, volume, status) {
+        this.channel = channel;
+        this.volume = volume;
+        this.status = status;
+        this.turnOnTV = function () {
+            this.status = true;
+            console.log("Tivi đã được bật trực tiếp");
+        }
+        this.turnOffTV = function () {
+            this.status = false;
+            console.log("Tivi đã được tắt trực tiếp")
+        }
+        this.switchChannel = function (channel) {
+            if (this.status == true) {
+                this.channel = channel;
+                console.log("Tivi đã được chuyển qua kênh " + this.channel);
+            }
+            else {
+                console.log("Tivi chưa được bật. Vui lòng bật Tivi trước khi sử dụng.");
+            }
+        }
+        this.increaseVolume = function () {
+            if (this.status == true) {
+                this.volume++;
+                console.log("Âm lượng được tăng lên mức " + this.volume);
+            }
+            else {
+                console.log("Tivi chưa được bật. Vui lòng bật Tivi trước khi sử dụng.");
+            }
+        }
+        this.decreaseVolume = function () {
+            if (this.status == true && this.volume != 0) {
+                this.volume--;
+                console.log("Âm lượng được giảm xuống mức " + this.volume);
+            }
+            else if (this.status == true) {
+                console.log("Tivi đang ở chế độ MUTE")
+            }
+            else {
+                console.log("Tivi chưa được bật. Vui lòng bật Tivi trước khi sử dụng.");
+            }
+        }
+    }
+
+    let remote = new Remote();
+    let tivi = new Tivi(10, 5, false);
+
+    remote.switchChannel(tivi, 5);
+    remote.increaseVolume(tivi);
+    remote.decreaseVolume(tivi);
+    remote.turnOffTV(tivi);
+    remote.turnOnTV(tivi);
+    remote.turnOffTV(tivi);
+
+    tivi.turnOnTV();
+    tivi.switchChannel(7);
+    remote.switchChannel(tivi, 5);
+    remote.increaseVolume(tivi);
+    remote.increaseVolume(tivi);
+    remote.increaseVolume(tivi);
+    remote.decreaseVolume(tivi);
+    remote.decreaseVolume(tivi);
+    remote.decreaseVolume(tivi);
+    tivi.switchChannel(20);
+    remote.switchChannel(tivi, 2);
+
+    tivi.increaseVolume();
+    tivi.increaseVolume();
+    tivi.increaseVolume();
+    tivi.increaseVolume();
+    tivi.increaseVolume();
+    tivi.increaseVolume();
+    tivi.increaseVolume();
+    tivi.decreaseVolume();
+    tivi.decreaseVolume();
+    tivi.decreaseVolume();
+    tivi.decreaseVolume();
+
+    tivi.turnOffTV();
+</script>
+
+</html>
