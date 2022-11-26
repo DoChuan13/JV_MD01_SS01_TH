@@ -11,12 +11,24 @@
 </head>
 <style>
     #container {
+        width: 700px;
+        height: 700px;
+        background-color: rgb(222, 234, 224);
+        border-radius: 10px;
+        border: 2px solid rebeccapurple;
+    }
+
+    #caro_table {
         position: relative;
-        width: 40%;
         height: 600px;
+        left: 40px;
         text-align: center;
         /* border: 1px solid black; */
         /* background-color: greenyellow; */
+    }
+
+    h1 {
+        text-align: center;
     }
 
     #win_alert {
@@ -49,6 +61,7 @@
         width: 30px;
         height: 30px;
         border: 1px dotted gray;
+        background-color: white;
         font-size: 26px;
     }
 
@@ -70,9 +83,9 @@
 </style>
 
 <body onload="drawCaroTable()">
-    <div>
+    <div id="container">
         <h1>Lượt chơi của người chơi <span id="turn_player">1 (o)</span></h1>
-        <div id="container">
+        <div id="caro_table">
             <div id="caro_table_position"></div>
             <div id="win_alert">Test</div>
         </div>
@@ -96,7 +109,7 @@
     for (let i = 0; i < 20; i++) {
         let rowArr = new Array();
         for (let j = 0; j < 20; j++) {
-            /*Value for Caro Box*/
+            /*Value top, left for Caro Box*/
             rowArr[j] = new CaroBox((i * 30), (j * 30));
         }
         caro[i] = rowArr;
@@ -113,6 +126,7 @@
         result.innerHTML = caro_table;
     }
     // console.log(caro_table);
+    //Check to Win
     function checkToWin() {
         let alert_win = document.getElementById("win_alert");
         for (let i = 0; i < (20 - 4); i++) {
@@ -167,6 +181,8 @@
         }
     }
 
+    //Play Caro for 2 Player
+    //Player's turn
     let turn = 1;
     function playCaro(x, y) {
         if (caro[x][y].value == "") {
