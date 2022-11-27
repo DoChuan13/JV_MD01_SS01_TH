@@ -134,17 +134,6 @@
         }
         result.innerHTML = caro_table;
     }
-
-    function drawCaroTableWhenWin() {
-        let result = document.getElementById("caro_table_position");
-        caro_table = '';
-        for (let i = 0; i < 20; i++) {
-            for (let j = 0; j < 20; j++) {
-                caro_table += `<div id="caro_box_${caro[i][j].value}" style="top: ${caro[i][j].top}px; left: ${caro[i][j].left}px">${caro[i][j].value}</div>`
-            }
-        }
-        result.innerHTML = caro_table;
-    }
     // console.log(caro_table);
     //Check to Win
     function checkToWin() {
@@ -168,13 +157,13 @@
                         console.log("Người chơi 1 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
                         alert_win.innerHTML = '<p>Player 1: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
-                        drawCaroTableWhenWin();
+                        return true;
                     }
                     else if (caro[i][j].value == "o") {
                         console.log("Người chơi 2 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
                         alert_win.innerHTML = '<p>Player 2: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
-                        drawCaroTableWhenWin();
+                        return true;
                     }
                 }
             }
@@ -190,13 +179,13 @@
                         console.log("Người chơi 1 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
                         alert_win.innerHTML = '<p>Player 1: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
-                        drawCaroTableWhenWin();
+                        return true;
                     }
                     else if (caro[i][j].value == "o") {
                         console.log("Người chơi 2 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
                         alert_win.innerHTML = '<p>Player 2: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
-                        drawCaroTableWhenWin();
+                        return true;
                     }
                 }
             }
@@ -207,7 +196,10 @@
     //Player's turn
     let turn = 1;
     function playCaro(x, y) {
-        if (caro[x][y].value == "") {
+        if (checkToWin() == true) {
+            alert("Game Over")
+        }
+        else if (caro[x][y].value == "") {
             switch (turn) {
                 case 1:
                     caro[x][y].value = 'x'
