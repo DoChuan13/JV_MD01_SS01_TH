@@ -48,7 +48,7 @@
         border-radius: 20px;
 
         font-size: 30px;
-
+        text-align: center;
     }
 
     #caro_box_,
@@ -79,6 +79,12 @@
     #caro_box_:hover {
         background-color: red;
         cursor: pointer;
+    }
+
+    button {
+        display: block;
+        text-align: center;
+        margin-left: 50px;
     }
 </style>
 
@@ -129,7 +135,7 @@
         result.innerHTML = caro_table;
     }
 
-    function drawCaroTablewhenWin() {
+    function drawCaroTableWhenWin() {
         let result = document.getElementById("caro_table_position");
         caro_table = '';
         for (let i = 0; i < 20; i++) {
@@ -161,14 +167,14 @@
                     if (caro[i][j].value == "x") {
                         console.log("Người chơi 1 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
-                        alert_win.innerHTML = "Player 1: WON"
-                        drawCaroTablewhenWin();
+                        alert_win.innerHTML = '<p>Player 1: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
+                        drawCaroTableWhenWin();
                     }
                     else if (caro[i][j].value == "o") {
                         console.log("Người chơi 2 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
-                        alert_win.innerHTML = "Player 2: WON"
-                        drawCaroTablewhenWin();
+                        alert_win.innerHTML = '<p>Player 2: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
+                        drawCaroTableWhenWin();
                     }
                 }
             }
@@ -183,13 +189,14 @@
                     if (caro[i][j].value == "x") {
                         console.log("Người chơi 1 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
-                        alert_win.innerHTML = "Player 1: WON"
-
+                        alert_win.innerHTML = '<p>Player 1: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
+                        drawCaroTableWhenWin();
                     }
                     else if (caro[i][j].value == "o") {
                         console.log("Người chơi 2 chiến thắng!!!!");
                         alert_win.style.visibility = "visible";
-                        alert_win.innerHTML = "Player 2: WON"
+                        alert_win.innerHTML = '<p>Player 2: WON' + '<button type="button" onClick="refreshPage()">Reload</button>';
+                        drawCaroTableWhenWin();
                     }
                 }
             }
@@ -223,7 +230,10 @@
         }
     }
 
-
+    //Refresh Page
+    function refreshPage() {
+        window.location.reload();
+    } 
 </script>
 
 </html>
