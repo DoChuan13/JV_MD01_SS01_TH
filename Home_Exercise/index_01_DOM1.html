@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1</title>
+</head>
+
+<body>
+    <h1>Danh sách cầu thủ
+    </h1>
+    <ul id="ul_list">
+
+    </ul>
+</body>
+<script>
+    let ul = document.getElementById("ul_list");
+    let li1 = `<li id="li1">Ronaldo</li>`;
+    let li2 = `<li id="li2">Messi</li>`;
+    let li3 = `<li id="li3">Neymal</li>`;
+    ul.innerHTML += li1 + li2 + li3;
+    console.log(ul);
+    let li3_remove = document.getElementById("li3");
+    li3_remove.remove();
+    console.log(ul);
+</script>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2: Đồng hồ đếm ngược</title>
+</head>
+<style>
+    span {
+        display: inline-block;
+        width: 80px;
+        background-color: aqua;
+        font-size: 100px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="timer"></div>
+    <div>
+        <span id="hours1"></span>
+        <span id="hours2"></span>
+        <span>:</span>
+        <span id="minutes1"></span>
+        <span id="minutes2"></span>
+        <span>:</span>
+        <span id="seconds1"></span>
+        <span id="seconds2"></span>
+    </div>
+    <div id="image_log"></div>
+    <!-- <img src="./images/chicken.gif" alt=""> -->
+</body>
+<script>
+    let hours = 0;
+    let minutes = 5;
+    let seconds = 60;
+    function countTimer() {
+        document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+        document.getElementById("hours1").innerHTML = parseInt(hours / 10);
+        document.getElementById("hours2").innerHTML = parseInt(hours % 10);
+        document.getElementById("minutes1").innerHTML = parseInt(minutes / 10);
+        document.getElementById("minutes2").innerHTML = parseInt(minutes % 10);
+        document.getElementById("seconds1").innerHTML = parseInt(seconds / 10);
+        document.getElementById("seconds2").innerHTML = parseInt(seconds % 10);
+        if (minutes == 0 && seconds == 0) {
+            console.log("Time Over!!");
+            return false;
+        }
+        else {
+            seconds--;
+            if (seconds == 00 && minutes != 0) {
+                minutes--;
+                seconds = 60;
+            }
+            return true;
+        }
+    }
+    setInterval(countTimer, 1000);
+
+    function showChicken() {
+        let pic = document.createElement("img");
+        pic.src = "./images/chicken.gif";
+        pic.id = "1";
+        pic.width = Math.random(0.5, 1) * 300;
+        pic.style.position = 'absolute';
+        pic.style.top = Math.random(0.5, 0.8) * window.innerHeight + "px";
+        pic.style.left = Math.random(0, 0.8) * window.innerWidth + "px";
+        document.body.appendChild(pic);
+
+        // setInterval(removeChicken, 10000);
+        // console.log((imgclick));
+        // imgclick.addEventListener('click', function () {
+        //     console.log("Clicking chicken");
+        // });
+    }
+    setInterval(showChicken, 5000);
+    // function removeChicken() {
+    //     let imgclick = document.querySelector("img");
+    //     imgclick.remove();
+    // }
+</script>
+
+</html>

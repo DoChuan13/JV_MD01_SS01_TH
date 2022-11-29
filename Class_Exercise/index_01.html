@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    #container {
+        max-width: 1400px;
+        height: 900px;
+        /* background-color: yellowgreen; */
+        text-align: center;
+        background-image: url("./images/mythic.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    #clock {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #clock>div {
+        width: 200px;
+        margin: 0 0;
+    }
+
+
+    #clock div div {
+        font-size: 30px;
+        color: yellow;
+    }
+
+    #hours,
+    #minutes,
+    #seconds {
+        display: inline-block;
+        width: 100px;
+        margin: 0 0;
+        font-size: 100px;
+        line-height: 100px;
+        /* background-color: aqua; */
+        color: white;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <h1>Thời gian bây giờ là:</h1>
+        <div id="clock">
+            <div>
+                <p id="hours"></p>
+                <div>Hours</div>
+            </div>
+            <div>
+                <p id="minutes"></p>
+                <div>Minutes</div>
+            </div>
+            <div>
+                <p id="seconds"></p>
+                <div>Seconds</div>
+            </div>
+        </div>
+        <br><br>
+        <audio autoplay>
+            <source src="./audios/going_home.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</body>
+<script>
+    function Clock() {
+        let today = new Date();
+        let hours = today.getHours();
+        let minutes = today.getMinutes();
+        let seconds = today.getSeconds();
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+    }
+    setInterval(Clock, 1000);
+
+    let pictureArr = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
+    let position = 0;
+
+    function changeImage() {
+        let background = document.getElementById("container");
+        switch (position) {
+            case 0:
+                background.style.backgroundImage = `url("./images/${pictureArr[position]}")`;
+                position++;
+                console.log(position);
+                break;
+            case 1:
+                background.style.backgroundImage = `url("./images/${pictureArr[position]}")`;
+                position++;
+                console.log(position);
+                break;
+            case 2:
+                background.style.backgroundImage = `url("./images/${pictureArr[position]}")`;
+                position++;
+                console.log(position);
+                break;
+            case 3:
+                background.style.backgroundImage = `url("./images/${pictureArr[position]}")`;
+                position++;
+                console.log(position);
+                break;
+            case 4:
+                background.style.backgroundImage = `url("./images/${pictureArr[position]}")`;
+                position++;
+                console.log(position);
+                break;
+            case 5:
+                background.style.backgroundImage = `url("./images/${pictureArr[position]}")`;
+                position = 0;
+                console.log(position);
+                break;
+        }
+    }
+    setInterval(changeImage, 5000);
+</script>
+
+</html>

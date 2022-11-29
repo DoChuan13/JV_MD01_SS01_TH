@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2</title>
+</head>
+
+<body>
+    <!-- <h1 id="heading-1">This is Heading Level 1</h1> -->
+
+    <button type="button" id="btn">Click to add new player</button>
+    <ul id="ul_list">
+        <li>Ronaldo</li>
+        <li>Messi</li>
+        <li>Neymar</li>
+    </ul>
+
+    <br><br><br>
+    <hr>
+    <input id="my-input" type="text">
+</body>
+<script>
+    //Ví dụ
+    // let h1 = document.getElementById('heading-1');
+    // h1.addEventListener('click', function () {
+    //     console.log("Clicked");
+    // })
+
+    // Bài tập 1.1
+    // let ul = document.getElementById("ul_list");
+    // let button = document.getElementById("btn");
+    // let button = document.querySelector('button')
+    // button.addEventListener('click', function () {
+    //     li4 = `<li>Kante</li>`
+    //     ul.innerHTML += li4;
+    // })
+
+    //Ví dụ
+    // let myInput = document.getElementById('my-input');
+    // myInput.addEventListener('keypress', function (data) {
+    //     console.log("Inputting...");
+    //     console.log(data);
+    // })
+
+
+    //Bài tập 1.2 
+    let ul = document.getElementById("ul_list");
+    let my_input = document.getElementById("my-input");
+    my_input.addEventListener('keypress', function (e) {
+        // console.log(e);
+        if (e.key === 'Enter') {
+            let li4 = `<li>${my_input.value}</li>`
+            ul.innerHTML += li4;
+            my_input.value = '';
+        }
+    })
+
+</script>
+
+</html>
