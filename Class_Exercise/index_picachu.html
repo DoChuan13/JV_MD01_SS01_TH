@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pikachu</title>
+    <style>
+        .container {
+            background: linear-gradient(180deg, #471953, #2e1042, #250e3d);
+            width: 425px;
+            border-radius: 40px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .rowColor {
+            height: 20px;
+            background: linear-gradient(145deg, #e94041, #c059fe, #f8c340, #84f200);
+            margin-bottom: 40px;
+            border: 2px solid #fff;
+        }
+
+        #box {
+            position: relative;
+            display: flex;
+        }
+
+        .box-img {
+            background-color: #faddc0;
+            padding: 8px;
+            margin: 0 2px;
+            box-shadow: 4px 4px 2px #92755b;
+            border-radius: 6px;
+        }
+
+        .box-img:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="rowColor"></div>
+        <div style="color:#fff">
+            <h3>Scores: <span id="scores"></span></h3>
+        </div>
+        <div id="box">
+            <div id="box-item"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let arrayPikachu = [
+        ["images/ahri.jpg", "images/ashe.jpg", "images/eko.jpg", "images/jana.jpg", "images/jinx.jpg", "images/kene.jpg", "images/LB.jpg", "images/LS.jpg", "images/lulu.jpg", "images/lux.jpg", "images/masterYi.jpg", "images/Sena.jpg", "images/Shen.jpg", "images/Sion.jpg", "images/teemo.jpg", "images/thuythan.jpg", "images/veigar.jpg", "images/yasuo.jpg"],
+
+        ["images/ahri.jpg", "images/ashe.jpg", "images/eko.jpg", "images/jana.jpg", "images/jinx.jpg", "images/kene.jpg", "images/LB.jpg", "images/LS.jpg", "images/lulu.jpg", "images/lux.jpg", "images/masterYi.jpg", "images/Sena.jpg", "images/Shen.jpg", "images/Sion.jpg", "images/teemo.jpg", "images/thuythan.jpg", "images/veigar.jpg", "images/yasuo.jpg"]
+    ];
+
+    let boxItem = document.getElementById("box-item");
+    for (let i = 0; i < arrayPikachu.length; i++) {
+        for (let j = 0; j < arrayPikachu[i].length; j++) {
+            let pikachuImg = document.createElement("img");
+            pikachuImg.src = arrayPikachu[i][j];
+            pikachuImg.width = 50;
+            pikachuImg.height = 50;
+            pikachuImg.className = "box-img";
+            pikachuImg.addEventListener("click", addEventListenerButton)
+            boxItem.appendChild(pikachuImg);
+            // console.log(pikachuImg);
+        }
+    }
+
+    var result = "";
+    var score = 0;
+    function addEventListenerButton() {
+        console.log("click")
+        if (result == "") {
+            result = this;
+            this.style.backgroundColor = "red"
+            console.log(result);
+        } else {
+            if (this.src == result.src) {
+                console.log(result);
+                this.style.visibility = "hidden";
+                result.style.visibility = "hidden";
+                score++;
+                result = "";
+            }
+            else {
+                console.log(result);
+                // xóa bỏ background khi 2 hình khác nhau
+                let allClassPikachu = document.querySelectorAll(".box-img");
+                for (let index = 0; index < allClassPikachu.length; index++) {
+                    allClassPikachu[index].style.backgroundColor = "#faddc0";
+                    result.style.backgroundColor = "red";
+                }
+            }
+        }
+
+        document.getElementById("scores").innerHTML = score;
+        if (score == 18) {
+            alert("Win");
+        }
+    }
+
+
+
+</script>
+
+</html>
