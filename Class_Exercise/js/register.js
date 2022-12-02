@@ -105,8 +105,8 @@ register.addEventListener('click', function () {
         console.log(JSON.stringify(account));
         localStorage.setItem("user", JSON.stringify(account));
         alert("Đăng ký thành công");
-        // localStorage.setItem('email', email.value);
-        // localStorage.setItem('password', password.value);
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('password', password.value);
     }
 })
 
