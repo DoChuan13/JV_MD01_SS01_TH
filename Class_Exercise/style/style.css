@@ -1,0 +1,66 @@
+    * {
+        box-sizing: border-box;
+        margin: o auto;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    fieldset {
+        position: absolute;
+        top: 350px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        background-color: rgb(247, 249, 246);
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    .divpass {
+        position: relative;
+    }
+
+    .bi {
+        position: absolute;
+        top: 35px;
+        right: 10px;
+    }
+
+
+    input {
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    #btn {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    button {
+        width: 40%;
+        font-size: 16px;
+        border-radius: 5px;
+        color: white;
+        background-color: green;
+    }
+
+    button a {
+        text-decoration: none;
+        color: white;
+    }
+
+    span {
+        color: red;
+    }

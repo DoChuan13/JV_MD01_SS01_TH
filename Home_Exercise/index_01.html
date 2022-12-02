@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách cầu thủ</title>
+</head>
+
+<body>
+    <h1>Danh sách cầu thủ</h1>
+    <input type="text" name="" id="input">
+    <button>Add to list</button>
+    <button>Remove All</button>
+    <br>
+    <ul class="playerlist">
+    </ul>
+</body>
+<script>
+    let addButton = document.querySelector('button');
+    let input = document.querySelector('#input');
+    let list = document.querySelector('.playerlist')
+    let i = 0;
+    addButton.addEventListener('click', function () {
+        let li = document.createElement('li');
+        let nodeText = document.createTextNode(input.value);
+        li.appendChild(nodeText);
+        list.appendChild(li);
+        // input.value = '';
+
+        localStorage.setItem("Player " + i, input.value);
+        i++;
+    })
+    // localStorage.clear();
+</script>
+
+</html>
